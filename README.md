@@ -8,13 +8,13 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/ffscrapr)](https://CRAN.R-project.org/package=ffscrapr)
+status](https://img.shields.io/cran/v/ffscrapr?style=flat-square)](https://CRAN.R-project.org/package=ffscrapr)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat-square)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Codecov test
-coverage](https://codecov.io/gh/DynastyProcess/ffscrapr/branch/main/graph/badge.svg)](https://codecov.io/gh/DynastyProcess/ffscrapr?branch=main)
+coverage](https://img.shields.io/codecov/c/github/dynastyprocess/ffscrapr?label=test%20coverage&style=flat-square)](https://codecov.io/gh/DynastyProcess/ffscrapr?branch=main)
 [![R build
-status](https://github.com/DynastyProcess/ffscrapr/workflows/R-CMD-check/badge.svg)](https://github.com/DynastyProcess/ffscrapr/actions)
+status](https://img.shields.io/github/workflow/status/dynastyprocess/ffscrapr/R-CMD-check?label=R-CMD-check&style=flat-square)](https://github.com/DynastyProcess/ffscrapr/actions)
 
 <!-- badges: end -->
 
@@ -26,18 +26,29 @@ sources.
 
 ### Installation
 
-Install from GitHub with:
+Version 1.0.0 is now on CRAN 🎉 and can be installed with:
 
 ``` r
+install.packages("ffscrapr")
+# or from GitHub release
 # install.packages("devtools") OR install.packages("remotes")
-## remotes is a subpackage of devtools
+# remotes is a subpackage of devtools
+remotes::install_github("dynastyprocess/ffscrapr",ref = "v1.0.0")
+```
+
+Install the development version from GitHub with:
+
+``` r
 remotes::install_github("dynastyprocess/ffscrapr")
 ```
+
+The dev version has a [separate documentation site
+here](https://ffscrapr.dynastyprocess.com/dev/).
 
 ### Usage
 
 All `ffscrapr` functions start with a connection object created by
-ff\_connect, which stores connection, authentication, and other
+`ff_connect()`, which stores connection, authentication, and other
 user-defined parameters. This object is used by all other functions to
 help return the correct data.
 
@@ -59,43 +70,33 @@ ff_league(ssb) %>% str()
 #>  $ player_copies  : num 1
 #>  $ years_active   : chr "2018-2020"
 #>  $ qb_count       : chr "1"
-#>  $ roster_size    : num 35
-#>  $ league_depth   : num 490
+#>  $ roster_size    : num 28
+#>  $ league_depth   : num 392
 
 # Get rosters
 ff_rosters(ssb)
-#> # A tibble: 429 x 11
-#>    franchise_id franchise_name player_id player_name pos   team    age
-#>    <chr>        <chr>          <chr>     <chr>       <chr> <chr> <dbl>
-#>  1 0001         Team Pikachu   13129     Fournette,~ RB    JAC    25.6
-#>  2 0001         Team Pikachu   13189     Engram, Ev~ TE    NYG    25.9
-#>  3 0001         Team Pikachu   11680     Landry, Ja~ WR    CLE    27.7
-#>  4 0001         Team Pikachu   13290     Cohen, Tar~ RB    CHI    25  
-#>  5 0001         Team Pikachu   13155     Ross, John  WR    CIN    24.7
-#>  6 0001         Team Pikachu   13158     Westbrook,~ WR    JAC    26.7
-#>  7 0001         Team Pikachu   10273     Newton, Cam QB    NEP    31.2
-#>  8 0001         Team Pikachu   14085     Pollard, T~ RB    DAL    23.3
-#>  9 0001         Team Pikachu   13139     Williams, ~ RB    GBP    25.4
-#> 10 0001         Team Pikachu   13649     Hamilton, ~ WR    DEN    25.4
-#> # ... with 419 more rows, and 4 more variables: roster_status <chr>,
+#> # A tibble: 435 x 11
+#>   franchise_id franchise_name player_id player_name pos   team    age
+#>   <chr>        <chr>          <chr>     <chr>       <chr> <chr> <dbl>
+#> 1 0001         Team Pikachu   13189     Engram, Ev~ TE    NYG    26.2
+#> 2 0001         Team Pikachu   11680     Landry, Ja~ WR    CLE    28  
+#> 3 0001         Team Pikachu   14085     Pollard, T~ RB    DAL    23.5
+#> 4 0001         Team Pikachu   13645     Smith, Tre~ WR    NOS    24.9
+#> 5 0001         Team Pikachu   12110     Brate, Cam~ TE    TBB    29.4
+#> # ... with 430 more rows, and 4 more variables: roster_status <chr>,
 #> #   drafted <chr>, draft_year <chr>, draft_round <chr>
 
 # Get transactions
 ff_transactions(ssb)
-#> # A tibble: 183 x 12
-#>    timestamp           type  type_desc franchise_id franchise_name player_id
-#>    <dttm>              <chr> <chr>     <chr>        <chr>          <chr>    
-#>  1 2020-08-10 16:32:55 FREE~ dropped   0013         Team Ness      11925    
-#>  2 2020-08-10 16:31:43 FREE~ dropped   0013         Team Ness      12648    
-#>  3 2020-08-07 20:38:52 IR    activated 0007         Team Kirby     13871    
-#>  4 2020-08-06 17:01:09 IR    deactiva~ 0003         Team Captain ~ 10737    
-#>  5 2020-08-06 17:01:09 IR    deactiva~ 0003         Team Captain ~ 11758    
-#>  6 2020-08-06 17:01:09 IR    deactiva~ 0003         Team Captain ~ 11890    
-#>  7 2020-08-04 22:16:11 IR    deactiva~ 0013         Team Ness      11925    
-#>  8 2020-08-04 16:22:07 FREE~ dropped   0013         Team Ness      11850    
-#>  9 2020-08-03 20:34:25 IR    activated 0007         Team Kirby     13724    
-#> 10 2020-08-03 20:33:17 IR    deactiva~ 0007         Team Kirby     12665    
-#> # ... with 173 more rows, and 6 more variables: player_name <chr>, pos <chr>,
+#> # A tibble: 843 x 12
+#>   timestamp           type  type_desc franchise_id franchise_name player_id
+#>   <dttm>              <chr> <chr>     <chr>        <chr>          <chr>    
+#> 1 2020-11-15 17:54:18 IR    activated 0004         Team Ice Clim~ 14840    
+#> 2 2020-11-15 17:54:08 FREE~ dropped   0004         Team Ice Clim~ 13316    
+#> 3 2020-11-15 17:23:51 FREE~ added     0010         Team Yoshi     10708    
+#> 4 2020-11-15 17:23:25 IR    deactiva~ 0010         Team Yoshi     14126    
+#> 5 2020-11-15 16:45:09 TAXI  promoted  0013         Team Ness      14125    
+#> # ... with 838 more rows, and 6 more variables: player_name <chr>, pos <chr>,
 #> #   team <chr>, bbid_spent <dbl>, trade_partner <chr>, comments <chr>
 ```
 
@@ -112,8 +113,8 @@ this project:
     issue](https://github.com/DynastyProcess/ffscrapr/issues/new/choose)
     if you’d like to request specific data or report a bug/error.
 
-  - You can [sponsor this project by donating to help with server
-    costs](https://github.com/sponsors/tanho63)\!
+  - You can [sponsor this project with
+    donations](https://github.com/sponsors/tanho63)\!
 
   - If you’d like to contribute code, please check out [the contribution
     guidelines](https://ffscrapr.dynastyprocess.com/CONTRIBUTING.html).

@@ -3,11 +3,10 @@ with_mock_api({
     dlf_conn <- ff_connect("mfl", 37920, season = 2020)
     dlf_league <- ff_league(dlf_conn)
 
-    expect_s3_class(dlf_league, class = "tbl_df")
-    expect_equal(nrow(dlf_league), 1)
-    expect_true(Reduce(`&`, !is.na(dlf_league)), label = "Test ff_league(dlf) for NA values")
+    expect_tibble(dlf_league, any.missing = FALSE, min.rows = 1)
 
-    sleeper_conn <- ff_connect("sleeper", 527362181635997696, season = 2020)
-    expect_error(ff_league(sleeper_conn))
+    jml_conn <- ff_connect(platform = "sleeper", league_id = 522458773317046272, season = 2020)
+    jml_league <- ff_league(jml_conn)
+    expect_tibble(jml_league, any.missing = FALSE, min.rows = 1)
   })
 })

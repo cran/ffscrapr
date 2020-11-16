@@ -5,7 +5,6 @@
 #'
 #' A helper function to return the current year if March or later, otherwise assume previous year
 #'
-#' @noRd
 #' @keywords internal
 
 .fn_choose_season <- function(date = NULL) {
@@ -33,10 +32,9 @@
 #' @param rate_number number of calls per \code{rate_seconds}
 #' @param rate_seconds number of seconds
 #'
-#' @noRd
 #' @keywords internal
 
-.fn_set_ratelimit <- function(toggle = TRUE, rate_number, rate_seconds) {
+.fn_set_ratelimit <- function(toggle = TRUE, platform, rate_number, rate_seconds) {
   if (toggle) {
     fn_get <- ratelimitr::limit_rate(httr::GET, ratelimitr::rate(rate_number, rate_seconds))
     fn_post <- ratelimitr::limit_rate(httr::POST, ratelimitr::rate(rate_number, rate_seconds))
@@ -47,8 +45,15 @@
     fn_post <- httr::POST
   }
 
-  assign("get", fn_get, envir = .ffscrapr_env)
-  assign("post", fn_post, envir = .ffscrapr_env)
+  if (platform == "MFL") {
+    assign("get.mfl", fn_get, envir = .ffscrapr_env)
+    assign("post.mfl", fn_post, envir = .ffscrapr_env)
+  }
+
+  if (platform == "Sleeper") {
+    assign("get.sleeper", fn_get, envir = .ffscrapr_env)
+    assign("post.sleeper", fn_post, envir = .ffscrapr_env)
+  }
 
   invisible(list(get = fn_get, post = fn_post))
 }
@@ -58,7 +63,6 @@
 #' Self-identifying is mostly about being polite, although MFL has a program to give verified clients more bandwidth!
 #' See: https://www03.myfantasyleague.com/2020/csetup?C=APICLI
 #'
-#' @noRd
 #' @keywords internal
 
 .fn_set_useragent <- function(user_agent) {
@@ -66,4 +70,10 @@
   assign("user_agent", user_agent, envir = .ffscrapr_env)
 
   invisible(user_agent)
+}
+
+#' Drop nulls from a list/vector
+#' @keywords internal
+.fn_drop_nulls <- function(x) {
+  x[!vapply(x, is.null, FUN.VALUE = logical(1))]
 }

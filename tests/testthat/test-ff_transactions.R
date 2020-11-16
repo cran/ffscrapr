@@ -6,9 +6,13 @@ with_mock_api({
     dlf <- mfl_connect(2020, 37920)
     dlf_transactions <- ff_transactions(dlf)
 
-    expect_s3_class(dlf_transactions, "tbl_df")
-    expect_s3_class(ssb_transactions, "tbl_df")
-    expect_gt(nrow(ssb_transactions), 1)
-    expect_gt(nrow(dlf_transactions), 1)
+    expect_tibble(ssb_transactions, min.rows = 100)
+    expect_tibble(dlf_transactions, min.rows = 100)
+
+    jml_conn <- ff_connect(platform = "sleeper", league_id = "522458773317046272", season = 2020)
+    jml_transactions <- ff_transactions(jml_conn,week = 1:17)
+
+    expect_tibble(jml_transactions,min.rows = 20)
+
   })
 })

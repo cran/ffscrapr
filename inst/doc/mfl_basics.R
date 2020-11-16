@@ -5,14 +5,16 @@ knitr::opts_chunk$set(
 )
 
 ## ----setup--------------------------------------------------------------------
-suppressPackageStartupMessages({
   library(ffscrapr)
   library(dplyr)
   library(tidyr)
-})
+
 
 ## -----------------------------------------------------------------------------
-ssb <- mfl_connect(season = 2020, league_id = 54040, rate_limit_number = 3, rate_limit_seconds = 6)
+ssb <- mfl_connect(season = 2020, 
+                   league_id = 54040, # from the URL of your league
+                   rate_limit_number = 3, 
+                   rate_limit_seconds = 6)
 ssb
 
 ## -----------------------------------------------------------------------------

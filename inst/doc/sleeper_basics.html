@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Getting Started: Sleeper Basics</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting Started: Sleeper Basics</h1>
+
+
+
+<p>In this vignette, I’ll walk through how to get started with a basic dynasty value analysis on Sleeper.</p>
+<p>We’ll start by loading the packages:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>  <span class="kw">library</span>(ffscrapr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="kw">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">library</span>(tidyr)</span></code></pre></div>
+<p>In Sleeper, unlike in other platforms, it’s very unlikely that you’ll remember the league ID - both because most people use the mobile app, and because it happens to be an 18 digit number! It’s a little more natural to start analyses from the username, so let’s start there!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a>solarpool_leagues &lt;-<span class="st"> </span><span class="kw">sleeper_userleagues</span>(<span class="st">&quot;solarpool&quot;</span>,<span class="dv">2020</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">head</span>(solarpool_leagues)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; # A tibble: 3 x 4</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt;   league_name                   league_id        franchise_name franchise_id    </span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt;   &lt;chr&gt;                         &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;           </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; 1 z_dynastyprocess-test         633501761776197~ solarpool      202892038360801~</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; 2 The JanMichaelLarkin Dynasty~ 522458773317046~ solarpool      202892038360801~</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; 3 DLP Dynasty League            521379020332068~ DLP::thoriyan  202892038360801~</span></span></code></pre></div>
+<p>Let’s pull the JML league ID from here for analysis, and set up a Sleeper connection object.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>jml_id &lt;-<span class="st"> </span>solarpool_leagues <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">filter</span>(league_name <span class="op">==</span><span class="st"> &quot;The JanMichaelLarkin Dynasty League&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="st">  </span><span class="kw">pull</span>(league_id)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>jml_id <span class="co"># For quick analyses, I&#39;m not above copy-pasting the league ID instead!</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; [1] &quot;522458773317046272&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>jml &lt;-<span class="st"> </span><span class="kw">sleeper_connect</span>(<span class="dt">season =</span> <span class="dv">2020</span>, <span class="dt">league_id =</span> jml_id)</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>jml</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; &lt;Sleeper connection 2020_522458773317046272&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; List of 5</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt;  $ platform : chr &quot;Sleeper&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt;  $ season   : num 2020</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt;  $ user_name: NULL</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt;  $ league_id: chr &quot;522458773317046272&quot;</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt;  $ user_id  : NULL</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt;  - attr(*, &quot;class&quot;)= chr &quot;sleeper_conn&quot;</span></span></code></pre></div>
+<p>I’ve done this with the <code>sleeper_connect()</code> function, although you can also do this from the <code>ff_connect()</code> call - they are equivalent. Most if not all of the remaining functions after this point are prefixed with “ff_”.</p>
+<p>Cool! Let’s have a quick look at what this league is like.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a>jml_summary &lt;-<span class="st"> </span><span class="kw">ff_league</span>(jml)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">str</span>(jml_summary)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; tibble [1 x 15] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt;  $ league_id      : chr &quot;522458773317046272&quot;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt;  $ league_name    : chr &quot;The JanMichaelLarkin Dynasty League&quot;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt;  $ league_type    : chr &quot;dynasty&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#&gt;  $ franchise_count: num 12</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#&gt;  $ qb_type        : chr &quot;1QB&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt;  $ idp            : logi FALSE</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt;  $ scoring_flags  : chr &quot;0.5_ppr&quot;</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt;  $ best_ball      : logi FALSE</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt;  $ salary_cap     : logi FALSE</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt;  $ player_copies  : num 1</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt;  $ years_active   : chr &quot;2019-2020&quot;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">#&gt;  $ qb_count       : chr &quot;1&quot;</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt;  $ roster_size    : int 25</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt;  $ league_depth   : num 300</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="co">#&gt;  $ prev_league_ids: chr &quot;386236959468675072&quot;</span></span></code></pre></div>
+<p>Okay, so it’s the JanMichaelLarkin Dynasty League, it’s a 1QB league with 12 teams, half ppr scoring, and rosters about 300 players.</p>
+<p>Let’s grab the rosters now.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>jml_rosters &lt;-<span class="st"> </span><span class="kw">ff_rosters</span>(jml)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">head</span>(jml_rosters)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; # A tibble: 6 x 7</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name     pos   team    age</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 1 1            Fake News      2025      Albert Wilson   WR    MIA    28.3</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; 2 1            Fake News      4089      Gerald Everett  TE    LAR    26.4</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; 3 1            Fake News      6068      Devine Ozigbo   RB    JAX    24.1</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; 4 1            Fake News      4036      Corey Davis     WR    TEN    25.8</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; 5 1            Fake News      1339      Zach Ertz       TE    PHI    30  </span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt; 6 1            Fake News      5068      Kerryon Johnson RB    DET    23.4</span></span></code></pre></div>
+<div id="values" class="section level2">
+<h2>Values</h2>
+<p>Cool! Let’s pull in some additional context by adding DynastyProcess player values.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2"></a>player_values &lt;-<span class="st"> </span><span class="kw">dp_values</span>(<span class="st">&quot;values-players.csv&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># The values are stored by fantasypros ID since that&#39;s where the data comes from. </span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># To join it to our rosters, we&#39;ll need playerID mappings.</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>player_ids &lt;-<span class="st"> </span><span class="kw">dp_playerids</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">  </span><span class="kw">select</span>(sleeper_id,fantasypros_id)</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a>player_values &lt;-<span class="st"> </span>player_values <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="st">  </span><span class="kw">left_join</span>(player_ids, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;fp_id&quot;</span> =<span class="st"> &quot;fantasypros_id&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="st">  </span><span class="kw">select</span>(sleeper_id,ecr_1qb,ecr_pos,value_1qb)</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co"># Drilling down to just 1QB values and IDs, we&#39;ll be joining it onto rosters and don&#39;t need the extra stuff</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a>jml_values &lt;-<span class="st"> </span>jml_rosters <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="st">  </span><span class="kw">left_join</span>(player_values, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;player_id&quot;</span>=<span class="st">&quot;sleeper_id&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="st">  </span><span class="kw">arrange</span>(franchise_id,<span class="kw">desc</span>(value_1qb))</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="kw">head</span>(jml_values)</span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt; # A tibble: 6 x 10</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name pos   team    age ecr_1qb</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt; 1 1            Fake News      1426      DeAndre Ho~ WR    ARI    28.4     6.7</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">#&gt; 2 1            Fake News      4866      Saquon Bar~ RB    NYG    23.8     7.7</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#&gt; 3 1            Fake News      4037      Chris Godw~ WR    TB     24.7    15.7</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; 4 1            Fake News      4199      Aaron Jones RB    GB     26      28.3</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#&gt; 5 1            Fake News      4098      Kareem Hunt RB    CLE    25.3    47.7</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#&gt; 6 1            Fake News      4137      James Conn~ RB    PIT    25.5    71.3</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#&gt; # ... with 2 more variables: ecr_pos &lt;dbl&gt;, value_1qb &lt;int&gt;</span></span></code></pre></div>
+<p>Let’s do some team summaries now!</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2"></a>value_summary &lt;-<span class="st"> </span>jml_values <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span><span class="kw">group_by</span>(franchise_id,franchise_name,pos) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total_value =</span> <span class="kw">sum</span>(value_1qb,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="st">  </span><span class="kw">group_by</span>(franchise_id,franchise_name) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">team_value =</span> <span class="kw">sum</span>(total_value)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> pos, <span class="dt">values_from =</span> total_value) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(team_value))</span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; `summarise()` regrouping output by &#39;franchise_id&#39;, &#39;franchise_name&#39; (override with `.groups` argument)</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a>value_summary</span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; # A tibble: 12 x 8</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt;    franchise_id franchise_name    team_value    QB    RB    TE    WR    FB</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt;  1 4            The FANTom Menace      51911  3133 15663  2637 30478    NA</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt;  2 1            Fake News              47811   654 20073  4097 22987    NA</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt;  3 3            solarpool              46000  5907 21904  1321 16868    NA</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt;  4 11           Permian Panthers       43204  4187 11979  5266 21772    NA</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt;  5 12           jaydk                  39289  1972 15583  4343 17391    NA</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co">#&gt;  6 8            Hocka Flocka           35007  1235 19661  2304 11807    NA</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">#&gt;  7 6            sox05syd               33925  3288  4000  7099 19538    NA</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#&gt;  8 9            ZPMiller97             30612  4122 11320  2585 12585    NA</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">#&gt;  9 5            Barbarians             29758  4391 16191  2713  6463    NA</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co">#&gt; 10 7            Flipadelphia05         23353  4078  7371   414 11490    NA</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="co">#&gt; 11 10           JMLarkin               21571   926   396  1389 18860     0</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="co">#&gt; 12 2            KingGabe               18830   543  4577   148 13562    NA</span></span></code></pre></div>
+<p>So with that, we’ve got a team summary of values! I like applying some context, so let’s turn these into percentages - this helps normalise it to your league environment.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>value_summary_pct &lt;-<span class="st"> </span>value_summary <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">c</span>(<span class="st">&quot;team_value&quot;</span>,<span class="st">&quot;QB&quot;</span>,<span class="st">&quot;RB&quot;</span>,<span class="st">&quot;WR&quot;</span>,<span class="st">&quot;TE&quot;</span>),<span class="op">~</span>.x<span class="op">/</span><span class="kw">sum</span>(.x)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">c</span>(<span class="st">&quot;team_value&quot;</span>,<span class="st">&quot;QB&quot;</span>,<span class="st">&quot;RB&quot;</span>,<span class="st">&quot;WR&quot;</span>,<span class="st">&quot;TE&quot;</span>),round, <span class="dv">3</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a>value_summary_pct</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; # A tibble: 12 x 8</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt;    franchise_id franchise_name    team_value    QB    RB    TE    WR    FB</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt;  1 4            The FANTom Menace      0.123 0.091 0.105 0.077 0.15     NA</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt;  2 1            Fake News              0.113 0.019 0.135 0.119 0.113    NA</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt;  3 3            solarpool              0.109 0.172 0.147 0.038 0.083    NA</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt;  4 11           Permian Panthers       0.103 0.122 0.081 0.153 0.107    NA</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#&gt;  5 12           jaydk                  0.093 0.057 0.105 0.127 0.085    NA</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#&gt;  6 8            Hocka Flocka           0.083 0.036 0.132 0.067 0.058    NA</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">#&gt;  7 6            sox05syd               0.081 0.095 0.027 0.207 0.096    NA</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">#&gt;  8 9            ZPMiller97             0.073 0.12  0.076 0.075 0.062    NA</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">#&gt;  9 5            Barbarians             0.071 0.128 0.109 0.079 0.032    NA</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">#&gt; 10 7            Flipadelphia05         0.055 0.118 0.05  0.012 0.056    NA</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">#&gt; 11 10           JMLarkin               0.051 0.027 0.003 0.04  0.093     0</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">#&gt; 12 2            KingGabe               0.045 0.016 0.031 0.004 0.067    NA</span></span></code></pre></div>
+<p>Armed with a value summary like this, we can see team strengths and weaknesses pretty quickly, and figure out who might be interested in your positional surpluses and who might have a surplus at a position you want to look at.</p>
+</div>
+<div id="age" class="section level2">
+<h2>Age</h2>
+<p>Another question you might ask: what is the average age of any given team?</p>
+<p>I like looking at average age by position, but weighted by dynasty value. This helps give a better idea of age for each team - including who might be looking to offload an older veteran!</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2"></a>age_summary &lt;-<span class="st"> </span>jml_values <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="st">  </span><span class="kw">group_by</span>(franchise_id,pos) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">position_value =</span> <span class="kw">sum</span>(value_1qb,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">weighted_age =</span> age<span class="op">*</span>value_1qb<span class="op">/</span>position_value,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>         <span class="dt">weighted_age =</span> <span class="kw">round</span>(weighted_age, <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="st">  </span><span class="kw">group_by</span>(franchise_id,franchise_name,pos) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(),</span>
+<span id="cb9-10"><a href="#cb9-10"></a>            <span class="dt">age =</span> <span class="kw">sum</span>(weighted_age,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> pos,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>              <span class="dt">values_from =</span> <span class="kw">c</span>(age,count))</span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt; `summarise()` regrouping output by &#39;franchise_id&#39;, &#39;franchise_name&#39; (override with `.groups` argument)</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>age_summary</span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co">#&gt; # A tibble: 12 x 12</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="co">#&gt; # Groups:   franchise_id, franchise_name [12]</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#&gt;    franchise_id franchise_name age_QB age_RB age_TE age_WR age_FB count_QB</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co">#&gt;  1 1            Fake News        33.1   24.8   26     27       NA        3</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co">#&gt;  2 10           JMLarkin         29.1   25.8   26.6   25.2      0        3</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="co">#&gt;  3 11           Permian Panth~   23.8   22.9   31     25.7     NA        3</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt;  4 12           jaydk            29.7   25.1   25.7   27.5     NA        4</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt;  5 2            KingGabe         24.4   22     31.3   21.7     NA        5</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt;  6 3            solarpool        25.4   25.2   26.2   27.8     NA        5</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt;  7 4            The FANTom Me~   28.6   24     24     26.3     NA        4</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="co">#&gt;  8 5            Barbarians       24.8   24.3   27.8   26.2     NA        2</span></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="co">#&gt;  9 6            sox05syd         24.4   23.4   26.8   24.5     NA        3</span></span>
+<span id="cb9-29"><a href="#cb9-29"></a><span class="co">#&gt; 10 7            Flipadelphia05   32.6   25.4   26.2   26.1     NA        2</span></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="co">#&gt; 11 8            Hocka Flocka     29.9   24.3   24.1   23.6     NA        3</span></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="co">#&gt; 12 9            ZPMiller97       24.2   24.1   25.9   24.9     NA        3</span></span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="co">#&gt; # ... with 4 more variables: count_RB &lt;int&gt;, count_TE &lt;int&gt;, count_WR &lt;int&gt;,</span></span>
+<span id="cb9-33"><a href="#cb9-33"></a><span class="co">#&gt; #   count_FB &lt;int&gt;</span></span></code></pre></div>
+</div>
+<div id="next-steps" class="section level2">
+<h2>Next steps</h2>
+<p>In this vignette, I’ve used ~three functions: ff_connect, ff_league, and ff_rosters. Now that you’ve gotten this far, why not check out some of the other possibilities?</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
