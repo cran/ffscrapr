@@ -3,8 +3,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+options(dplyr.summarise.inform = FALSE)
 
-## ----setup--------------------------------------------------------------------
+## ----setup, message = FALSE---------------------------------------------------
 library(ffscrapr)
 library(dplyr)
 library(purrr)
@@ -12,11 +13,13 @@ library(glue)
 
 ## -----------------------------------------------------------------------------
 
-query <- glue::glue('players/nfl/trending/add')
+type <- "add"
+
+query <- glue::glue('players/nfl/trending/{type}')
 
 query
 
-response_trending <- sleeper_getendpoint(query)
+response_trending <- sleeper_getendpoint(query,lookback_hours = 48, limit = 10)
 
 str(response_trending, max.level = 1)
 
@@ -37,5 +40,4 @@ trending <- df_trending %>%
   left_join(players, by = "player_id")
 
 trending
-
 

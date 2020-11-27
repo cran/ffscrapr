@@ -6,9 +6,8 @@
 #'
 #' @examples
 #'
-#' jml_conn <- ff_connect(platform = "sleeper", league_id = 522458773317046272, season = 2020)
+#' jml_conn <- ff_connect(platform = "sleeper", league_id = "522458773317046272", season = 2020)
 #' ff_league(jml_conn)
-#'
 #' @describeIn ff_league Sleeper: returns a summary of league features.
 #'
 #' @export
@@ -60,8 +59,7 @@ ff_league.sleeper_conn <- function(conn) {
   QB <- sum(starting_positions$value %in% c("QB"))
   SF <- sum(starting_positions$value %in% c("SUPER_FLEX"))
 
-  x <- sum(QB, SF)
-
+  x <- sum(QB, SF, na.rm = TRUE)
 
   type <- dplyr::case_when(
     x >= 2 ~ "2QB/SF",

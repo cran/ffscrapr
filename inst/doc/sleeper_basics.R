@@ -3,18 +3,17 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+options(dplyr.summarise.inform = FALSE)
 
-## ----setup--------------------------------------------------------------------
+## ----setup, message=FALSE-----------------------------------------------------
   library(ffscrapr)
   library(dplyr)
   library(tidyr)
 
 ## -----------------------------------------------------------------------------
-
 solarpool_leagues <- sleeper_userleagues("solarpool",2020)
 
 head(solarpool_leagues)
-
 
 ## -----------------------------------------------------------------------------
 jml_id <- solarpool_leagues %>% 
@@ -39,7 +38,6 @@ jml_rosters <- ff_rosters(jml)
 head(jml_rosters)
 
 ## -----------------------------------------------------------------------------
-
 player_values <- dp_values("values-players.csv")
 
 # The values are stored by fantasypros ID since that's where the data comes from. 
@@ -61,7 +59,6 @@ jml_values <- jml_rosters %>%
 head(jml_values)
 
 ## -----------------------------------------------------------------------------
-
 value_summary <- jml_values %>% 
   group_by(franchise_id,franchise_name,pos) %>% 
   summarise(total_value = sum(value_1qb,na.rm = TRUE)) %>%
@@ -74,7 +71,6 @@ value_summary <- jml_values %>%
 
 value_summary
 
-
 ## -----------------------------------------------------------------------------
 value_summary_pct <- value_summary %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),~.x/sum(.x)) %>% 
@@ -83,7 +79,6 @@ value_summary_pct <- value_summary %>%
 value_summary_pct
 
 ## -----------------------------------------------------------------------------
-
 age_summary <- jml_values %>% 
   group_by(franchise_id,pos) %>% 
   mutate(position_value = sum(value_1qb,na.rm=TRUE)) %>% 
@@ -97,5 +92,4 @@ age_summary <- jml_values %>%
               values_from = c(age,count))
 
 age_summary
-
 

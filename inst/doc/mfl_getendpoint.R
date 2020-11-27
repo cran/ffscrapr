@@ -3,6 +3,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+options(dplyr.summarise.inform = FALSE)
 
 ## ----setup--------------------------------------------------------------------
 library(ffscrapr)
@@ -15,8 +16,10 @@ conn
 ## -----------------------------------------------------------------------------
 sfb_search <- mfl_getendpoint(conn,endpoint = "leagueSearch", SEARCH = "sfbx conference")
 
-## -----------------------------------------------------------------------------
+str(sfb_search, max.level = 1)
 
+
+## -----------------------------------------------------------------------------
 search_results <- sfb_search %>% 
   purrr::pluck("content","leagues","league") %>% 
   tibble::tibble() %>% 
@@ -24,9 +27,7 @@ search_results <- sfb_search %>%
 
 head(search_results)
 
-
 ## -----------------------------------------------------------------------------
-
 fog <- mfl_connect(season = 2019, league_id = 12608)
 
 fog_tradebait <- mfl_getendpoint(fog, "tradeBait", INCLUDE_DRAFT_PICKS = 1) %>% 

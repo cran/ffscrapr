@@ -3,12 +3,12 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+options(dplyr.summarise.inform = FALSE)
 
 ## ----setup--------------------------------------------------------------------
   library(ffscrapr)
   library(dplyr)
   library(tidyr)
-
 
 ## -----------------------------------------------------------------------------
 ssb <- mfl_connect(season = 2020, 
@@ -18,7 +18,6 @@ ssb <- mfl_connect(season = 2020,
 ssb
 
 ## -----------------------------------------------------------------------------
-
 ssb_summary <- ff_league(ssb)
 
 str(ssb_summary)
@@ -29,7 +28,6 @@ ssb_rosters <- ff_rosters(ssb)
 head(ssb_rosters)
 
 ## -----------------------------------------------------------------------------
-
 player_values <- dp_values("values-players.csv")
 
 # The values are stored by fantasypros ID since that's where the data comes from. 
@@ -51,7 +49,6 @@ ssb_values <- ssb_rosters %>%
 head(ssb_values)
 
 ## -----------------------------------------------------------------------------
-
 value_summary <- ssb_values %>% 
   group_by(franchise_id,franchise_name,pos) %>% 
   summarise(total_value = sum(value_1qb,na.rm = TRUE)) %>%
@@ -64,7 +61,6 @@ value_summary <- ssb_values %>%
 
 value_summary
 
-
 ## -----------------------------------------------------------------------------
 value_summary_pct <- value_summary %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),~.x/sum(.x)) %>% 
@@ -73,7 +69,6 @@ value_summary_pct <- value_summary %>%
 value_summary_pct
 
 ## -----------------------------------------------------------------------------
-
 age_summary <- ssb_values %>% 
   group_by(franchise_id,pos) %>% 
   mutate(position_value = sum(value_1qb,na.rm=TRUE)) %>% 
@@ -86,5 +81,4 @@ age_summary <- ssb_values %>%
               values_from = c(age,count))
 
 age_summary
-
 

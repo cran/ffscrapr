@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' \donttest{
-#' jml_conn <- ff_connect(platform = "sleeper", league_id = 522458773317046272, season = 2020)
+#' jml_conn <- ff_connect(platform = "sleeper", league_id = "522458773317046272", season = 2020)
 #' ff_standings(jml_conn)
 #' }
 #'
@@ -50,19 +50,7 @@ ff_standings.sleeper_conn <- function(conn, ...) {
     )
 
   allplay <- ff_schedule(conn) %>%
-    dplyr::filter(!is.na(.data$result)) %>%
-    dplyr::group_by(.data$week) %>%
-    dplyr::mutate(
-      allplay_wins = rank(.data$franchise_score, ) - 1,
-      allplay_losses = dplyr::n() - 1 - .data$allplay_wins
-    ) %>%
-    dplyr::ungroup() %>%
-    dplyr::group_by(.data$franchise_id) %>%
-    dplyr::summarise(
-      allplay_wins = sum(c(.data$allplay_wins, 0), na.rm = TRUE),
-      allplay_losses = sum(c(.data$allplay_losses, 0), na.rm = TRUE),
-      allplay_winpct = .data$allplay_wins / (.data$allplay_wins + .data$allplay_losses)
-    )
+    .add_allplay()
 
   standings <- franchise_names %>%
     dplyr::left_join(rosters_standings, by = "franchise_id") %>%
