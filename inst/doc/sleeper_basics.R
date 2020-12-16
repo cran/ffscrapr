@@ -4,6 +4,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 options(dplyr.summarise.inform = FALSE)
+httptest::.mockPaths("../tests/testthat")
+httptest::use_mock_api()
 
 ## ----setup, message=FALSE-----------------------------------------------------
   library(ffscrapr)
@@ -92,4 +94,7 @@ age_summary <- jml_values %>%
               values_from = c(age,count))
 
 age_summary
+
+## ----include = FALSE----------------------------------------------------------
+httptest::stop_mocking()
 

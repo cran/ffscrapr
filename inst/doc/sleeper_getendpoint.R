@@ -4,6 +4,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 options(dplyr.summarise.inform = FALSE)
+httptest::.mockPaths("../tests/testthat")
+httptest::use_mock_api()
+
 
 ## ----setup, message = FALSE---------------------------------------------------
 library(ffscrapr)
@@ -40,4 +43,7 @@ trending <- df_trending %>%
   left_join(players, by = "player_id")
 
 trending
+
+## ----include = FALSE----------------------------------------------------------
+httptest::stop_mocking()
 

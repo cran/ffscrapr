@@ -4,6 +4,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 options(dplyr.summarise.inform = FALSE)
+httptest::.mockPaths("../tests/testthat")
+
+httptest::use_mock_api()
 
 ## ----setup--------------------------------------------------------------------
 library(ffscrapr)
@@ -46,4 +49,7 @@ fog_tradebait <- mfl_getendpoint(fog, "tradeBait", INCLUDE_DRAFT_PICKS = 1) %>%
   )
 
 head(fog_tradebait)
+
+## ----include = FALSE----------------------------------------------------------
+httptest::stop_mocking()
 

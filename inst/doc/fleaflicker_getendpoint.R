@@ -4,6 +4,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 options(dplyr.summarise.inform = FALSE)
+httptest::.mockPaths("../tests/testthat")
+
+httptest::use_mock_api()
 
 ## ----setup, message = FALSE---------------------------------------------------
 library(ffscrapr)
@@ -53,4 +56,7 @@ onegame_lineups <- fleaflicker_getendpoint(
   tidyr::unnest_wider('player')
 
 str(onegame_lineups,max.level = 2)
+
+## ----include = FALSE----------------------------------------------------------
+httptest::stop_mocking()
 
