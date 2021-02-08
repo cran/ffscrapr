@@ -1,7 +1,7 @@
 Type: Package
 Package: ffscrapr
 Title: API Client for Fantasy Football League Platforms
-Version: 1.2.1
+Version: 1.2.2
 Authors@R: 
     person(given = "Tan",
            family = "Ho",
@@ -30,8 +30,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-12-16 02:02:04 UTC; Tan
+Packaged: 2021-02-08 00:46:43 UTC; Tan
 Author: Tan Ho [aut, cre]
 Maintainer: Tan Ho <tan@tanho.ca>
 Repository: CRAN
-Date/Publication: 2020-12-16 05:50:03 UTC
+Date/Publication: 2021-02-08 05:20:02 UTC
