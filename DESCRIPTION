@@ -1,37 +1,44 @@
 Type: Package
 Package: ffscrapr
 Title: API Client for Fantasy Football League Platforms
-Version: 1.2.2
+Version: 1.3.0
 Authors@R: 
-    person(given = "Tan",
+    c(person(given = "Tan",
            family = "Ho",
            role = c("aut", "cre"),
-           email = "tan@tanho.ca")
-Description: Helps access various Fantasy Football APIs by handling authentication and
-    rate-limiting, forming appropriate calls, and returning tidy
-    dataframes which can be easily connected to other data sources.
+           email = "tan@tanho.ca"),
+    person(given = "Tony",
+           family = "ElHabr",
+           role = c("ctb"),
+           email = "anthonyelhabr@gmail.com"))
+Description: Helps access various Fantasy Football APIs by handling 
+    authentication and rate-limiting, forming appropriate calls, and returning 
+    tidy dataframes which can be easily connected to other data sources.
 License: MIT + file LICENSE
 URL: https://ffscrapr.dynastyprocess.com,
         https://github.com/dynastyprocess/ffscrapr,
         https://api.myfantasyleague.com/2020/api_info,
         https://docs.sleeper.app,
-        https://www.fleaflicker.com/api-docs/index.html
+        https://www.fleaflicker.com/api-docs/index.html,
+        https://www.espn.com/fantasy/
 BugReports: https://github.com/dynastyprocess/ffscrapr/issues
 Depends: R (>= 3.0.0)
-Imports: dplyr (>= 1.0.0), glue (>= 1.3.0), httr (>= 1.4.0), jsonlite
-        (>= 1.6.0), lubridate (>= 1.5.0), magrittr (>= 1.5.0), memoise
-        (>= 1.1.0), purrr (>= 0.3.0), rappdirs (>= 0.3.0), ratelimitr
-        (>= 0.4.0), rlang (>= 0.4.0), stringr (>= 1.4.0), tibble (>=
-        3.0.0), tidyr (>= 1.0.0)
-Suggests: covr (>= 3.0.0), httptest (>= 3.0.0), knitr, rmarkdown,
-        testthat (>= 2.1.0), checkmate
+Imports: checkmate (>= 2.0.0), dplyr (>= 1.0.0), glue (>= 1.3.0), httr
+        (>= 1.4.0), jsonlite (>= 1.6.0), lubridate (>= 1.5.0), magrittr
+        (>= 1.5.0), memoise (>= 1.1.0), purrr (>= 0.3.0), rappdirs (>=
+        0.3.0), ratelimitr (>= 0.4.0), rlang (>= 0.4.0), stringr (>=
+        1.4.0), tibble (>= 3.0.0), tidyr (>= 1.0.0), lifecycle
+Suggests: covr (>= 3.0.0), curl (>= 4.0.0), httptest (>= 3.0.0), knitr
+        (>= 1.0), rmarkdown (>= 2.6), testthat (>= 2.1.0), withr (>=
+        2.4.0)
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-02-08 00:46:43 UTC; Tan
-Author: Tan Ho [aut, cre]
+Packaged: 2021-03-04 15:43:20 UTC; Tan
+Author: Tan Ho [aut, cre],
+  Tony ElHabr [ctb]
 Maintainer: Tan Ho <tan@tanho.ca>
 Repository: CRAN
-Date/Publication: 2021-02-08 05:20:02 UTC
+Date/Publication: 2021-03-07 14:50:15 UTC

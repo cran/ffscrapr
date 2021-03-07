@@ -150,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>What is being cached? How long is it being cached for?</h2>
 <p>ffscrapr’s core functions often loop over the same, stable endpoints to help return the data for each function - things like “player names/positions/teams”, “franchise IDs/names”, and “league scoring rules” are all used frequently. ffscrapr incorporates <a href="https://github.com/r-lib/memoise">memoise</a> package to help with this functionality, and (as of this writing) saves the results of these functions:</p>
 <ul>
-<li><code>mfl_players()</code>, <code>sleeper_players()</code> - these functions are stored for 7 days</li>
+<li><code>mfl_players()</code>, <code>sleeper_players()</code>, <code>fleaflicker_players()</code> - these functions are stored for 7 days</li>
 <li><code>ff_franchises()</code>, <code>ff_scoring()</code>, <code>ff_league()</code> - these functions are stored for 24 hours</li>
 <li><code>ff_standings()</code>, <code>ff_playerscores()</code>, <code>ff_starters()</code>, <code>ff_schedule()</code> , <code>ff_userleagues()</code> - these functions are stored for one hour</li>
 <li><code>dp_playerids()</code> and <code>dp_values()</code> - these functions are stored for 24 hours</li>
@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Where is it being cached?</h2>
 <p>By default, ffscrapr will save the results of each function call (i.e. function + arguments) into memory.</p>
 <p>If you would like to have your cache stored on your local filesystem, you can adjust this behaviour by adding the following line to your (or your project) .Rprofile, or by adding it BEFORE you library/load the package.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ffscrapr.cache =</span> <span class="st">&quot;filesystem&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ffscrapr.cache =</span> <span class="st">&quot;filesystem&quot;</span>)</span></code></pre></div>
 <p>This will instruct ffscrapr to store the cache on your machine, as dictated by the typical cache location for your operating system. You can see where this is by running the following line of code:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rappdirs<span class="sc">::</span><span class="fu">user_cache_dir</span>(<span class="st">&quot;ffscrapr&quot;</span>)</span></code></pre></div>
 </div>

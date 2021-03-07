@@ -3,18 +3,30 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-options(dplyr.summarise.inform = FALSE)
-httptest::.mockPaths("../tests/testthat")
+
+options(dplyr.summarise.inform = FALSE,
+        rmarkdown.html_vignette.check_title = FALSE)
+
+eval <- TRUE
+
+tryCatch(expr = {
+  
+  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.3.0.zip","f.zip")
+  unzip('f.zip', exdir = ".")
+  
+  httptest::.mockPaths(new = "ffscrapr-tests-1.3.0")},
+  warning = function(e) eval <<- FALSE,
+  error = function(e) eval <<- FALSE)
 
 httptest::use_mock_api()
 
-## ----setup, message = FALSE---------------------------------------------------
+## ----setup, message = FALSE, eval = eval--------------------------------------
 library(ffscrapr)
 library(dplyr)
 library(purrr)
 library(glue)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 sport <- "NFL"
 league_id <- 206154
 season <- 2020
@@ -28,7 +40,7 @@ response_scoreboard <- fleaflicker_getendpoint("FetchLeagueScoreboard",
 
 str(response_scoreboard, max.level = 1)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 df_scoreboard <- response_scoreboard %>% 
   purrr::pluck("content","games") %>% 
   tibble::tibble() %>% 
@@ -38,7 +50,7 @@ df_scoreboard <- response_scoreboard %>%
 
 head(df_scoreboard)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 # same variables as previous endpoint call!
 onegame_lineups <- fleaflicker_getendpoint(
   "FetchLeagueBoxscore",
@@ -59,4 +71,6 @@ str(onegame_lineups,max.level = 2)
 
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
+
+unlink(c("ffscrapr-tests-1.3.0","f.zip"), recursive = TRUE, force = TRUE)
 

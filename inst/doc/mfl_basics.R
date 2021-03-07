@@ -3,34 +3,46 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-options(dplyr.summarise.inform = FALSE)
-httptest::.mockPaths("../tests/testthat")
+
+options(dplyr.summarise.inform = FALSE,
+        rmarkdown.html_vignette.check_title = FALSE)
+
+eval <- TRUE
+
+tryCatch(expr = {
+  
+  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.3.0.zip","f.zip")
+  unzip('f.zip', exdir = ".")
+  
+  httptest::.mockPaths(new = "ffscrapr-tests-1.3.0")},
+  warning = function(e) eval <<- FALSE,
+  error = function(e) eval <<- FALSE)
 
 httptest::use_mock_api()
 
-## ----setup--------------------------------------------------------------------
+## ----setup, eval = eval-------------------------------------------------------
   library(ffscrapr)
   library(dplyr)
   library(tidyr)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 ssb <- mfl_connect(season = 2020, 
                    league_id = 54040, # from the URL of your league
                    rate_limit_number = 3, 
                    rate_limit_seconds = 6)
 ssb
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 ssb_summary <- ff_league(ssb)
 
 str(ssb_summary)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 ssb_rosters <- ff_rosters(ssb)
 
 head(ssb_rosters)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 player_values <- dp_values("values-players.csv")
 
 # The values are stored by fantasypros ID since that's where the data comes from. 
@@ -51,7 +63,7 @@ ssb_values <- ssb_rosters %>%
 
 head(ssb_values)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 value_summary <- ssb_values %>% 
   group_by(franchise_id,franchise_name,pos) %>% 
   summarise(total_value = sum(value_1qb,na.rm = TRUE)) %>%
@@ -64,14 +76,14 @@ value_summary <- ssb_values %>%
 
 value_summary
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 value_summary_pct <- value_summary %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),~.x/sum(.x)) %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),round, 3)
 
 value_summary_pct
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 age_summary <- ssb_values %>% 
   group_by(franchise_id,pos) %>% 
   mutate(position_value = sum(value_1qb,na.rm=TRUE)) %>% 
@@ -87,4 +99,6 @@ age_summary
 
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
+
+unlink(c("ffscrapr-tests-1.3.0","f.zip"), recursive = TRUE, force = TRUE)
 

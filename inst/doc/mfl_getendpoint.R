@@ -3,26 +3,38 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-options(dplyr.summarise.inform = FALSE)
-httptest::.mockPaths("../tests/testthat")
+
+options(dplyr.summarise.inform = FALSE,
+        rmarkdown.html_vignette.check_title = FALSE)
+
+eval <- TRUE
+
+tryCatch(expr = {
+  
+  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.3.0.zip","f.zip")
+  unzip('f.zip', exdir = ".")
+  
+  httptest::.mockPaths(new = "ffscrapr-tests-1.3.0")},
+  warning = function(e) eval <<- FALSE,
+  error = function(e) eval <<- FALSE)
 
 httptest::use_mock_api()
 
-## ----setup--------------------------------------------------------------------
+## ----setup, eval = eval-------------------------------------------------------
 library(ffscrapr)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 conn <- mfl_connect(season = 2020)
 
 conn
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 sfb_search <- mfl_getendpoint(conn,endpoint = "leagueSearch", SEARCH = "sfbx conference")
 
 str(sfb_search, max.level = 1)
 
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 search_results <- sfb_search %>% 
   purrr::pluck("content","leagues","league") %>% 
   tibble::tibble() %>% 
@@ -30,7 +42,7 @@ search_results <- sfb_search %>%
 
 head(search_results)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 fog <- mfl_connect(season = 2019, league_id = 12608)
 
 fog_tradebait <- mfl_getendpoint(fog, "tradeBait", INCLUDE_DRAFT_PICKS = 1) %>% 
@@ -44,7 +56,7 @@ fog_tradebait <- mfl_getendpoint(fog, "tradeBait", INCLUDE_DRAFT_PICKS = 1) %>%
     by = c("franchise_id")
   ) %>% 
   dplyr::left_join(
-    mfl_players() %>% dplyr::select("player_id","player_name","pos","age","team"),
+    mfl_players(fog) %>% dplyr::select("player_id","player_name","pos","age","team"),
     by = c("willGiveUp" = "player_id")
   )
 
@@ -52,4 +64,6 @@ head(fog_tradebait)
 
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
+
+unlink(c("ffscrapr-tests-1.3.0","f.zip"), recursive = TRUE, force = TRUE)
 

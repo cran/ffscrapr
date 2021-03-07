@@ -154,24 +154,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Cool! Let’s have a quick look at what this league is like.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>aaa_summary <span class="ot">&lt;-</span> <span class="fu">ff_league</span>(aaa)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Using request.R from &quot;ffscrapr&quot;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aaa_summary)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [1 x 14] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_id      : chr &quot;312861&quot;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_name    : chr &quot;Avid Auctioneers Alliance&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_type    : chr &quot;dynasty&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ franchise_count: num 12</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_type        : chr &quot;2QB/SF&quot;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ idp            : logi FALSE</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ scoring_flags  : chr &quot;0.5_ppr, PP1D&quot;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ best_ball      : logi FALSE</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ salary_cap     : logi FALSE</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ player_copies  : num 1</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_count       : chr &quot;1-2&quot;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ roster_size    : int 28</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_depth   : num 336</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ keeper_count   : int 28</span></span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aaa_summary)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [1 x 14] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_id      : chr &quot;312861&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_name    : chr &quot;Avid Auctioneers Alliance&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_type    : chr &quot;dynasty&quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ franchise_count: num 12</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_type        : chr &quot;2QB/SF&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ idp            : logi FALSE</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ scoring_flags  : chr &quot;0.5_ppr, PP1D&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ best_ball      : logi FALSE</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ salary_cap     : logi FALSE</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ player_copies  : num 1</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_count       : chr &quot;1-2&quot;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ roster_size    : int 28</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_depth   : num 336</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ keeper_count   : int 28</span></span></code></pre></div>
 <p>Okay, so it’s the Avid Auctioneers Alliance, it’s a 2QB league with 12 teams, half ppr scoring, and rosters about 340 players.</p>
 <p>Let’s grab the rosters now.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aaa_rosters <span class="ot">&lt;-</span> <span class="fu">ff_rosters</span>(aaa)</span>
@@ -190,45 +189,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Values</h2>
 <p>Cool! Let’s pull in some additional context by adding DynastyProcess player values.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>player_values <span class="ot">&lt;-</span> <span class="fu">dp_values</span>(<span class="st">&quot;values-players.csv&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The values are stored by fantasypros ID since that&#39;s where the data comes from. </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># To join it to our rosters, we&#39;ll need playerID mappings.</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>player_ids <span class="ot">&lt;-</span> <span class="fu">dp_playerids</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sportradar_id,fantasypros_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sportradar_id),<span class="sc">!</span><span class="fu">is.na</span>(fantasypros_id))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll be joining it onto rosters, so we can trim down the values dataframe</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># to just IDs, age, and values</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>player_values <span class="ot">&lt;-</span> player_values <span class="sc">%&gt;%</span> </span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(player_ids, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;fp_id&quot;</span> <span class="ot">=</span> <span class="st">&quot;fantasypros_id&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sportradar_id,age,ecr_1qb,ecr_pos,value_1qb)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The values are stored by fantasypros ID since that&#39;s where the data comes from. </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To join it to our rosters, we&#39;ll need playerID mappings.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>player_ids <span class="ot">&lt;-</span> <span class="fu">dp_playerids</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sportradar_id,fantasypros_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sportradar_id),<span class="sc">!</span><span class="fu">is.na</span>(fantasypros_id))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll be joining it onto rosters, so we can trim down the values dataframe</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># to just IDs, age, and values</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>player_values <span class="ot">&lt;-</span> player_values <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(player_ids, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;fp_id&quot;</span> <span class="ot">=</span> <span class="st">&quot;fantasypros_id&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sportradar_id,age,ecr_2qb,ecr_pos,value_2qb)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ff_rosters() will return the sportradar_id, which we can then match to our player values!</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ff_rosters() will return the sportradar_id, which we can then match to our player values!</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>aaa_values <span class="ot">&lt;-</span> aaa_rosters <span class="sc">%&gt;%</span> </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(player_values, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;sportradar_id&quot;</span><span class="ot">=</span><span class="st">&quot;sportradar_id&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(franchise_id,<span class="fu">desc</span>(value_1qb))</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aaa_values)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 11</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name pos   team  sportradar_id</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      1578553 Running Bear       13325 Austin Eke~ RB    LAC   e5b8c439-a48~</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      1578553 Running Bear       12926 Chris Godw~ WR    TB    baa61bb5-f8d~</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      1578553 Running Bear       15531 Brandon Ai~ WR    SF    c90471cc-fa6~</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      1578553 Running Bear        9338 Robert Woo~ WR    LAR   618bedee-925~</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      1578553 Running Bear       12159 Dak Presco~ QB    DAL   86197778-8d4~</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      1578553 Running Bear       13788 Michael Ga~ WR    DAL   9e174ff2-ca0~</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: age &lt;lgl&gt;, ecr_1qb &lt;dbl&gt;, ecr_pos &lt;dbl&gt;,</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   value_1qb &lt;int&gt;</span></span></code></pre></div>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>aaa_values <span class="ot">&lt;-</span> aaa_rosters <span class="sc">%&gt;%</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(player_values, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;sportradar_id&quot;</span><span class="ot">=</span><span class="st">&quot;sportradar_id&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(franchise_id,<span class="fu">desc</span>(value_2qb))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aaa_values)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 11</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name pos   team  sportradar_id</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        </span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      1578553 Running Bear       12159 Dak Presco~ QB    DAL   86197778-8d4~</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      1578553 Running Bear       12926 Chris Godw~ WR    TB    baa61bb5-f8d~</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      1578553 Running Bear       12032 Carson Wen~ QB    PHI   e9a5c16b-447~</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      1578553 Running Bear       13325 Austin Eke~ RB    LAC   e5b8c439-a48~</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      1578553 Running Bear       15531 Brandon Ai~ WR    SF    c90471cc-fa6~</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      1578553 Running Bear        9338 Robert Woo~ WR    LAR   618bedee-925~</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: age &lt;dbl&gt;, ecr_2qb &lt;dbl&gt;, ecr_pos &lt;dbl&gt;,</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   value_2qb &lt;int&gt;</span></span></code></pre></div>
 <p>Let’s do some team summaries now!</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>value_summary <span class="ot">&lt;-</span> aaa_values <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(franchise_id,franchise_name,pos) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_value =</span> <span class="fu">sum</span>(value_1qb,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_value =</span> <span class="fu">sum</span>(value_2qb,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(franchise_id,franchise_name) <span class="sc">%&gt;%</span> </span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">team_value =</span> <span class="fu">sum</span>(total_value)) <span class="sc">%&gt;%</span> </span>
@@ -241,18 +238,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 12 x 7</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name      team_value    QB    RB    WR    TE</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;                    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1581803 ZachFarni&#39;s Team         40718  2026 20237 18428    27</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1582416 Ray Jay Team             39961  1245 15838 12686 10192</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Team          38982  3180 12345 13653  9804</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581753 fede_mndz&#39;s Team         37853   627 19882 16248  1096</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1581722 syd12nyjets&#39;s Team       36579  3327  7987 22732  2533</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581726 SCJaguars&#39;s Team         34270   443 21417 12325    85</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581988 The DK Crew              33879  2442  8881 18056  4406</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581718 AlexG5386&#39;s Team         33534  1582 20534  6896  4522</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1581720 brosene&#39;s Team           32887  3826 15919  9468  3674</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581721 Mjenkyns2004&#39;s Team      32645  8830  7047 16325   443</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1582423 The Verblanders          32357  3912 12489 15409   547</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1578553 Running Bear             23608  2994  6348 13364   902</span></span></code></pre></div>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1581803 ZachFarni&#39;s Team         45776 10311 20030 15378    57</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1581722 syd12nyjets&#39;s Team       39773 14666  4596 19094  1417</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Team          36854  8087 10710 10095  7962</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581721 Mjenkyns2004&#39;s Team      35102 19346  3680 11614   462</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1582416 Ray Jay Team             34377  6209 11128  9012  8028</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581753 fede_mndz&#39;s Team         34119  3145 16590 13826   558</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581988 The DK Crew              34020  9167  6627 15292  2834</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581720 brosene&#39;s Team           33535 12479 12443  6224  2389</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1582423 The Verblanders          33505 10674 11273 11186   372</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581718 AlexG5386&#39;s Team         33017  8185 15644  4595  4593</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1581726 SCJaguars&#39;s Team         27224  3397 15703  8041    83</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1578553 Running Bear             23638 10541  3585  8257  1255</span></span></code></pre></div>
 <p>So with that, we’ve got a team summary of values! I like applying some context, so let’s turn these into percentages - this helps normalise it to your league environment.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>value_summary_pct <span class="ot">&lt;-</span> value_summary <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;team_value&quot;</span>,<span class="st">&quot;QB&quot;</span>,<span class="st">&quot;RB&quot;</span>,<span class="st">&quot;WR&quot;</span>,<span class="st">&quot;TE&quot;</span>),<span class="sc">~</span>.x<span class="sc">/</span><span class="fu">sum</span>(.x)) <span class="sc">%&gt;%</span> </span>
@@ -262,18 +259,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 12 x 7</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name      team_value    QB    RB    WR    TE</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1581803 ZachFarni&#39;s Team         0.098 0.059 0.12  0.105 0.001</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1582416 Ray Jay Team             0.096 0.036 0.094 0.072 0.267</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Team          0.093 0.092 0.073 0.078 0.256</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581753 fede_mndz&#39;s Team         0.091 0.018 0.118 0.093 0.029</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1581722 syd12nyjets&#39;s Team       0.088 0.097 0.047 0.129 0.066</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581726 SCJaguars&#39;s Team         0.082 0.013 0.127 0.07  0.002</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581988 The DK Crew              0.081 0.071 0.053 0.103 0.115</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581718 AlexG5386&#39;s Team         0.08  0.046 0.122 0.039 0.118</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1581720 brosene&#39;s Team           0.079 0.111 0.094 0.054 0.096</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581721 Mjenkyns2004&#39;s Team      0.078 0.256 0.042 0.093 0.012</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1582423 The Verblanders          0.078 0.114 0.074 0.088 0.014</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1578553 Running Bear             0.057 0.087 0.038 0.076 0.024</span></span></code></pre></div>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1581803 ZachFarni&#39;s Team         0.111 0.089 0.152 0.116 0.002</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1581722 syd12nyjets&#39;s Team       0.097 0.126 0.035 0.144 0.047</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Team          0.09  0.07  0.081 0.076 0.265</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581721 Mjenkyns2004&#39;s Team      0.085 0.166 0.028 0.088 0.015</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1582416 Ray Jay Team             0.084 0.053 0.084 0.068 0.268</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581753 fede_mndz&#39;s Team         0.083 0.027 0.126 0.104 0.019</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581988 The DK Crew              0.083 0.079 0.05  0.115 0.094</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581720 brosene&#39;s Team           0.082 0.107 0.094 0.047 0.08 </span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1582423 The Verblanders          0.082 0.092 0.085 0.084 0.012</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581718 AlexG5386&#39;s Team         0.08  0.07  0.119 0.035 0.153</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1581726 SCJaguars&#39;s Team         0.066 0.029 0.119 0.061 0.003</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1578553 Running Bear             0.058 0.091 0.027 0.062 0.042</span></span></code></pre></div>
 <p>Armed with a value summary like this, we can see team strengths and weaknesses pretty quickly, and figure out who might be interested in your positional surpluses and who might have a surplus at a position you want to look at.</p>
 </div>
 <div id="age" class="section level2">
@@ -283,9 +280,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>age_summary <span class="ot">&lt;-</span> aaa_values <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pos <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;QB&quot;</span>,<span class="st">&quot;RB&quot;</span>,<span class="st">&quot;WR&quot;</span>,<span class="st">&quot;TE&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(franchise_id,pos) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">position_value =</span> <span class="fu">sum</span>(value_1qb,<span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">position_value =</span> <span class="fu">sum</span>(value_2qb,<span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weighted_age =</span> age<span class="sc">*</span>value_1qb<span class="sc">/</span>position_value,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weighted_age =</span> age<span class="sc">*</span>value_2qb<span class="sc">/</span>position_value,</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">weighted_age =</span> <span class="fu">round</span>(weighted_age, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(franchise_id,franchise_name,pos) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(),</span>
@@ -298,18 +295,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   franchise_id, franchise_name [12]</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name age_QB age_RB age_TE age_WR count_QB count_RB</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1578553 Running Bear        0      0      0      0        6        6</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1581718 AlexG5386&#39;s T~      0      0      0      0        3       12</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Te~      0      0      0      0        5        8</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581720 brosene&#39;s Team      0      0      0      0        6       10</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1581721 Mjenkyns2004&#39;~      0      0      0      0        5        9</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581722 syd12nyjets&#39;s~      0      0      0      0        5        7</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581726 SCJaguars&#39;s T~      0      0      0      0        5        7</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581753 fede_mndz&#39;s T~      0      0      0      0        6       12</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1581803 ZachFarni&#39;s T~      0      0      0      0        5        9</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581988 The DK Crew         0      0      0      0        4        6</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1582416 Ray Jay Team        0      0      0      0        4        8</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1582423 The Verblande~      0      0      0      0        4        8</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1578553 Running Bear     27.7   25.8   26.2   25.4        6        6</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1581718 AlexG5386&#39;s T~   30.7   24.9   28.4   26.4        3       12</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1581719 Jmuthers&#39;s Te~   24.8   24.4   26.6   28.7        5        8</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1581720 brosene&#39;s Team   29.7   25.7   24.7   26.6        6       10</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1581721 Mjenkyns2004&#39;~   25.7   24     26.7   26.6        5        9</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1581722 syd12nyjets&#39;s~   24.8   22.4   24.4   22.2        5        7</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1581726 SCJaguars&#39;s T~   23.8   24.9   32.7   24.3        5        7</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1581753 fede_mndz&#39;s T~   35.7   24.7   24.5   27.9        6       12</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1581803 ZachFarni&#39;s T~   28.2   21.9   25.8   24.1        5        9</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1581988 The DK Crew      27     22.6   24.9   25          4        6</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11      1582416 Ray Jay Team     29.5   26.4   30.2   27          4        8</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12      1582423 The Verblande~   24.4   25.3   26.1   27.3        4        8</span></span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 2 more variables: count_TE &lt;int&gt;, count_WR &lt;int&gt;</span></span></code></pre></div>
 </div>
 <div id="next-steps" class="section level2">

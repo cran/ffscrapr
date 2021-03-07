@@ -3,21 +3,34 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-options(dplyr.summarise.inform = FALSE)
-httptest::.mockPaths("../tests/testthat")
+
+options(dplyr.summarise.inform = FALSE,
+        rmarkdown.html_vignette.check_title = FALSE)
+
+eval <- TRUE
+
+tryCatch(expr = {
+  
+  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.3.0.zip","f.zip")
+  unzip('f.zip', exdir = ".")
+  
+  httptest::.mockPaths(new = "ffscrapr-tests-1.3.0")},
+  warning = function(e) eval <<- FALSE,
+  error = function(e) eval <<- FALSE)
+
 httptest::use_mock_api()
 
-## ----setup, message=FALSE-----------------------------------------------------
+## ----setup, message=FALSE, eval = eval----------------------------------------
   library(ffscrapr)
   library(dplyr)
   library(tidyr)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 solarpool_leagues <- sleeper_userleagues("solarpool",2020)
 
 head(solarpool_leagues)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 jml_id <- solarpool_leagues %>% 
   filter(league_name == "The JanMichaelLarkin Dynasty League") %>% 
   pull(league_id)
@@ -28,18 +41,17 @@ jml <- sleeper_connect(season = 2020, league_id = jml_id)
 
 jml
 
-## -----------------------------------------------------------------------------
-
+## ----eval = eval--------------------------------------------------------------
 jml_summary <- ff_league(jml)
 
 str(jml_summary)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 jml_rosters <- ff_rosters(jml)
 
 head(jml_rosters)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 player_values <- dp_values("values-players.csv")
 
 # The values are stored by fantasypros ID since that's where the data comes from. 
@@ -60,7 +72,7 @@ jml_values <- jml_rosters %>%
 
 head(jml_values)
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 value_summary <- jml_values %>% 
   group_by(franchise_id,franchise_name,pos) %>% 
   summarise(total_value = sum(value_1qb,na.rm = TRUE)) %>%
@@ -73,14 +85,14 @@ value_summary <- jml_values %>%
 
 value_summary
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 value_summary_pct <- value_summary %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),~.x/sum(.x)) %>% 
   mutate_at(c("team_value","QB","RB","WR","TE"),round, 3)
 
 value_summary_pct
 
-## -----------------------------------------------------------------------------
+## ----eval = eval--------------------------------------------------------------
 age_summary <- jml_values %>% 
   group_by(franchise_id,pos) %>% 
   mutate(position_value = sum(value_1qb,na.rm=TRUE)) %>% 
@@ -97,4 +109,6 @@ age_summary
 
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
+
+unlink(c("ffscrapr-tests-1.3.0","f.zip"), recursive = TRUE, force = TRUE)
 
