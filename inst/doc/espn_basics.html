@@ -26,7 +26,14 @@
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -181,14 +188,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sucioboys_rosters) <span class="co"># quick snapshot of rosters</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 10</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name team  pos   eligible_pos</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;list&gt;      </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 The Early GGod   4036348 Michael Ga~ DAL   WR    &lt;chr [7]&gt;   </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            1 The Early GGod   4036131 Noah Fant   DEN   TE    &lt;chr [6]&gt;   </span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            1 The Early GGod    -16003 Bears D/ST  CHI   DST   &lt;chr [3]&gt;   </span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            1 The Early GGod     15920 Latavius M~ NOS   RB    &lt;chr [6]&gt;   </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            1 The Early GGod   3055899 Harrison B~ KCC   K     &lt;chr [3]&gt;   </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            1 The Early GGod   4241372 Marquise B~ BAL   WR    &lt;chr [7]&gt;   </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name     team  pos   eligible_pos</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;list&gt;      </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 The Early GGod   4036348 Michael Gallup  DAL   WR    &lt;chr [7]&gt;   </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            1 The Early GGod   4036131 Noah Fant       DEN   TE    &lt;chr [6]&gt;   </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            1 The Early GGod    -16003 Bears D/ST      CHI   DST   &lt;chr [3]&gt;   </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            1 The Early GGod     15920 Latavius Murray NOS   RB    &lt;chr [6]&gt;   </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            1 The Early GGod   3055899 Harrison Butker KCC   K     &lt;chr [3]&gt;   </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            1 The Early GGod   4241372 Marquise Brown  BAL   WR    &lt;chr [7]&gt;   </span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 3 more variables: status &lt;chr&gt;, acquisition_type &lt;chr&gt;,</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   acquisition_date &lt;dttm&gt;</span></span></code></pre></div>
 <div id="values" class="section level2">
@@ -220,14 +227,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sucioboys_values)</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 14</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name team  pos   eligible_pos</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;list&gt;      </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 The Early GGod 4242335   Jonathan T~ IND   RB    &lt;chr [7]&gt;   </span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            1 The Early GGod 4241985   J.K. Dobbi~ BAL   RB    &lt;chr [7]&gt;   </span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            1 The Early GGod 2976316   Michael Th~ NOS   WR    &lt;chr [7]&gt;   </span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            1 The Early GGod 4241479   Tua Tagova~ MIA   QB    &lt;chr [5]&gt;   </span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            1 The Early GGod 4040715   Jalen Hurts PHI   QB    &lt;chr [5]&gt;   </span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            1 The Early GGod 4239993   Tee Higgins CIN   WR    &lt;chr [8]&gt;   </span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name     team  pos   eligible_pos</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;list&gt;      </span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 The Early GGod 4242335   Jonathan Taylor IND   RB    &lt;chr [7]&gt;   </span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            1 The Early GGod 4241985   J.K. Dobbins    BAL   RB    &lt;chr [7]&gt;   </span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            1 The Early GGod 2976316   Michael Thomas  NOS   WR    &lt;chr [7]&gt;   </span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            1 The Early GGod 4241479   Tua Tagovailoa  MIA   QB    &lt;chr [5]&gt;   </span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            1 The Early GGod 4040715   Jalen Hurts     PHI   QB    &lt;chr [5]&gt;   </span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            1 The Early GGod 4239993   Tee Higgins     CIN   WR    &lt;chr [8]&gt;   </span></span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 7 more variables: status &lt;chr&gt;, acquisition_type &lt;chr&gt;,</span></span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   acquisition_date &lt;dttm&gt;, age &lt;dbl&gt;, ecr_2qb &lt;dbl&gt;, ecr_pos &lt;dbl&gt;,</span></span>
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   value_2qb &lt;int&gt;</span></span></code></pre></div>
@@ -248,15 +255,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name                team_value    QB    RB    WR    TE</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;                              &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1            5 &quot;The Juggernaut&quot;                   51211  7661 20007 17334  6209</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2            6 &quot;OBJ&#39;s Personal Porta Potty&quot;       47202 19545 23282  1394  2981</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2            6 &quot;OBJ&#39;s Personal Porta Potty&quot;       47172 19545 23252  1394  2981</span></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3            2 &quot;Coom  Dumpster&quot;                   46885 16317  4032 24880  1656</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4            7 &quot;Tony El Tigre&quot;                    43474 14208 17399  4988  6879</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4            7 &quot;Tony El Tigre&quot;                    43408 14142 17399  4988  6879</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5            4 &quot;I&#39;m Also Sad &quot;                    42807  2951 17737 17570  4549</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6            1 &quot;The Early GGod&quot;                   39982 11452 14925 10705  2900</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            3 &quot;PAKI STANS&quot;                       39150 12964 11897 12607  1682</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            3 &quot;PAKI STANS&quot;                       39137 12951 11897 12607  1682</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            9 &quot;RAFI CUNADO&quot;                      36116 10172 11676 13015  1253</span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9           10 &quot;Austin \U0001f410Drew Lock\~      25240 10278   414 14444   104</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10            8 &quot;Big Coomers&quot;                      20704  7894  1369 11281   160</span></span></code></pre></div>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10            8 &quot;Big Coomers&quot;                      20671  7894  1336 11281   160</span></span></code></pre></div>
 <p>So with that, we’ve got a team summary of values! I like applying some context, so let’s turn these into percentages - this helps normalise it to your league environment.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>value_summary_pct <span class="ot">&lt;-</span> value_summary <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;team_value&quot;</span>,<span class="st">&quot;QB&quot;</span>,<span class="st">&quot;RB&quot;</span>,<span class="st">&quot;WR&quot;</span>,<span class="st">&quot;TE&quot;</span>),<span class="sc">~</span>.x<span class="sc">/</span><span class="fu">sum</span>(.x)) <span class="sc">%&gt;%</span> </span>
@@ -298,18 +305,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>age_summary</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 x 10</span></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   franchise_id, franchise_name [10]</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name age_QB age_RB age_TE age_WR count_QB count_RB</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1            1 &quot;The Early GG~   23.7   22.3   24.7   25.8        4        6</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2            2 &quot;Coom  Dumpst~   28.4   26.5   26.8   25.7        4        7</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3            3 &quot;PAKI STANS&quot;     28.1   24.9   23.6   25.7        3        6</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4            4 &quot;I&#39;m Also Sad~   35.8   24.6   28.4   27.1        2        5</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5            5 &quot;The Juggerna~   24.5   24.2   31.3   25.2        3        8</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6            6 &quot;OBJ&#39;s Person~   24.5   24.4   25     24.3        3        6</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            7 &quot;Tony El Tigr~   24.6   24.7   27.5   26.2        3        5</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            8 &quot;Big Coomers&quot;    23.8   27.1   28.7   27.2        3        7</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9            9 &quot;RAFI CUNADO&quot;    34.6   25.5   26     24.1        3        5</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10           10 &quot;Austin \U000~   31.4   27.8   31.8   24.9        3        5</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name     age_QB age_RB age_TE age_WR count_QB count_RB</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;int&gt; &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1            1 &quot;The Early GGod&quot;     23.7   22.3   24.7   25.8        4        6</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2            2 &quot;Coom  Dumpster&quot;     28.4   26.5   26.8   25.7        4        7</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3            3 &quot;PAKI STANS&quot;         28.3   24.9   23.6   25.7        3        6</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4            4 &quot;I&#39;m Also Sad &quot;      35.8   24.6   28.4   27.1        2        5</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5            5 &quot;The Juggernaut&quot;     24.5   24.2   31.3   25.2        3        8</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6            6 &quot;OBJ&#39;s Personal P~   24.5   24.4   25     24.3        3        6</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            7 &quot;Tony El Tigre&quot;      24.5   24.7   27.5   26.2        3        5</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            8 &quot;Big Coomers&quot;        23.8   27     28.7   27.2        3        7</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9            9 &quot;RAFI CUNADO&quot;        34.6   25.5   26     24.1        3        5</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10           10 &quot;Austin \U0001f41~   31.4   27.8   31.8   24.9        3        5</span></span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 2 more variables: count_TE &lt;int&gt;, count_WR &lt;int&gt;</span></span></code></pre></div>
 </div>
 <div id="next-steps" class="section level2">

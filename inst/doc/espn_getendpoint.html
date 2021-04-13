@@ -26,7 +26,14 @@
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -143,12 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="known-endpoints" class="section level2">
 <h2>Known Endpoints</h2>
-<p>The ESPN Fantasy API is typically accessed from two endpoints that accept “views” as query parameters:</p>
-<pre><code># for 2018 onward
-https://fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{league_id} 
-
-# for 2017 or earlier
-https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={season} </code></pre>
+<p>The ESPN Fantasy API is typically accessed from two endpoints:</p>
+<pre><code>https://fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{league_id} # for 2018 onward
+https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={season} # for 2017 or earlier</code></pre>
 <p>Here’s a non-exhaustive list of view endpoints that I know of:</p>
 <ul>
 <li>mTeam</li>
@@ -169,10 +173,7 @@ https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={s
 <div id="using-espn_getendpoint" class="section level2">
 <h2>Using espn_getendpoint</h2>
 <p>ESPN’s API is mostly structured as making requests of different views against the main league endpoint.</p>
-<p>For example</p>
-<blockquote>
-<p><a href="https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail">https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail</a></p>
-</blockquote>
+<p>For example, <a href="https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail">https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail</a></p>
 <p>will pull up draft details for the 2020 league ID 899513. <code>espn_getendpoint</code> helps facilitate this request by allowing you to instead write:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">espn_connect</span>(<span class="at">season =</span> <span class="dv">2020</span>, <span class="at">league_id =</span> <span class="dv">899513</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -210,7 +211,7 @@ https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={s
 </div>
 <div id="x-fantasy-filter" class="section level2">
 <h2>X-Fantasy-Filter</h2>
-<p>Many of the endpoints are also affected by a JSON header, <code>X-Fantasy-Filter</code>, which can filter/sort/limit (or remove limits) from the API response. Here is an example of how to build up a valid JSON x-fantasy-filter, sourced from the code for <code>ff_playerscores()</code>:</p>
+<p>Many of the endpoints are also affected by a JSON header, <code>X-Fantasy-Filter</code>, which can filter/sort/limit (or remove limits) from the API response. Here is an example of how to build up a valid JSON x-fantasy-filter, sourced from the code for <code>ff_playerscores</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xff <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">players =</span> <span class="fu">list</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">limit =</span> <span class="dv">5</span>,</span>
@@ -226,8 +227,8 @@ https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={s
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>xff</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; {&quot;players&quot;:{&quot;limit&quot;:5,&quot;sortPercOwned&quot;:{&quot;sortAsc&quot;:false,&quot;sortPriority&quot;:1},&quot;filterStatsForTopScoringPeriodIDs&quot;:{&quot;value&quot;:2,&quot;additionalValue&quot;:&quot;002020&quot;</span><span class="re">}}}</span></span></code></pre></div>
 <p>This JSON limits the total responses to 5, filters the “statIDs” returned to just the ones prefixed by “00”, and sorts the whole thing by percent owned, descending.</p>
-<p>I’m not exactly clear on what all of the options for x-fantasy-filter are, but you can use it to emulate what’s happening in the request headers you find while capturing the requests on the main <code>fantasy.espn.com</code> site.</p>
-<p>Both the <code>espn_getendpoint</code> and <code>espn_getendpoint_raw</code> functions can accept x-fantasy-filters. <code>espn_getendpoint</code> has an <code>x_fantasy_filter</code> argument that takes the JSON object created above, while <code>espn_getendpoint_raw</code> requires that the object is converted into an HTTP header first.</p>
+<p>I’m not exactly clear on what all of the options for x-fantasy-filter are, but you can use it to emulate what’s happening in the request on <code>fantasy.espn.com</code>.</p>
+<p>Both the <code>espn_getendpoint</code> and <code>espn_getendpoint_raw</code> functions can accept x-fantasy-filters. <code>espn_getendpoint</code> has an <code>x_fantasy_filter</code>argument that takes the JSON object created above, while <code>espn_getendpoint_raw</code> requires that the object is converted into an HTTP header first.</p>
 <p>Examples here:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>player_scores <span class="ot">&lt;-</span> <span class="fu">espn_getendpoint</span>(conn, <span class="at">view =</span> <span class="st">&quot;kona_player_info&quot;</span>, <span class="at">x_fantasy_filter =</span> xff)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -238,7 +239,7 @@ https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={s
 </div>
 <div id="other-espn-api-resources" class="section level2">
 <h2>Other ESPN API resources</h2>
-<p>Kiernan Nichols’ <a href="https://github.com/kiernann/fflr">fflr R package</a> is an R package available on CRAN that is built specifically for ESPN API access. As of this writing (2021-03-03), it only supports public leagues, and has a few style differences as a lighter-weight &amp; lower-dependency package.</p>
+<p>Kiernan Nichols’s <a href="https://github.com/kiernann/fflr">fflr R package</a> is an R package available on CRAN that is built specifically for ESPN API access. As of this writing (2021-03-03) it only supports public leagues, and has a few style differences as a light-weight/lower-dependency package.</p>
 <p>Many of the API endpoints are being researched in other languages and you might be able to draw inspiration on what’s possible by checking them out:</p>
 <ul>
 <li><p>Christian Wendt’s <a href="https://github.com/cwendt94/espn-api/">espn-api</a> Python package was incredibly helpful in discovering the known and documented API endpoints.</p></li>

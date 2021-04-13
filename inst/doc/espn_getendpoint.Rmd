@@ -20,10 +20,10 @@ eval <- TRUE
 
 tryCatch(expr = {
   
-  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.3.0.zip","f.zip")
+  download.file("https://github.com/dynastyprocess/ffscrapr-tests/archive/1.4.0.zip","f.zip")
   unzip('f.zip', exdir = ".")
   
-  httptest::.mockPaths(new = "ffscrapr-tests-1.3.0")},
+  httptest::.mockPaths(new = "ffscrapr-tests-1.4.0")},
   warning = function(e) eval <<- FALSE,
   error = function(e) eval <<- FALSE)
 
@@ -43,14 +43,11 @@ Accessing the ESPN Fantasy API is a bit of an adventure into an undocumented aby
 
 ## Known Endpoints
 
-The ESPN Fantasy API is typically accessed from two endpoints that accept "views" as query parameters:
+The ESPN Fantasy API is typically accessed from two endpoints: 
 
 ```
-# for 2018 onward
-https://fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{league_id} 
-
-# for 2017 or earlier
-https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={season} 
+https://fantasy.espn.com/apis/v3/games/ffl/seasons/{season}/segments/0/leagues/{league_id} # for 2018 onward
+https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{league_id}?seasonId={season} # for 2017 or earlier
 ```
 
 Here's a non-exhaustive list of view endpoints that I know of:
@@ -76,9 +73,7 @@ Alternatively, you can consult the source code of other API packages (including 
 
 ESPN's API is mostly structured as making requests of different views against the main league endpoint.
 
-For example
-
-> [https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail](https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail)
+For example, [https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail](https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/899513?view=mDraftDetail)
 
 will pull up draft details for the 2020 league ID 899513. `espn_getendpoint` helps facilitate this request by allowing you to instead write:
 
@@ -106,7 +101,7 @@ These are equivalent requests. One reason to use the "raw" version is to be able
 
 ## X-Fantasy-Filter
 
-Many of the endpoints are also affected by a JSON header, `X-Fantasy-Filter`, which can filter/sort/limit (or remove limits) from the API response. Here is an example of how to build up a valid JSON x-fantasy-filter, sourced from the code for `ff_playerscores()`:
+Many of the endpoints are also affected by a JSON header, `X-Fantasy-Filter`, which can filter/sort/limit (or remove limits) from the API response. Here is an example of how to build up a valid JSON x-fantasy-filter, sourced from the code for `ff_playerscores`:
 
 ```{r xfantasyfilter, message = FALSE, eval = eval}
 
@@ -126,9 +121,9 @@ xff
 
 This JSON limits the total responses to 5, filters the "statIDs" returned to just the ones prefixed by "00", and sorts the whole thing by percent owned, descending.
 
-I'm not exactly clear on what all of the options for x-fantasy-filter are, but you can use it to emulate what's happening in the request headers you find while capturing the requests on the main `fantasy.espn.com` site.
+I'm not exactly clear on what all of the options for x-fantasy-filter are, but you can use it to emulate what's happening in the request on `fantasy.espn.com`.
 
-Both the `espn_getendpoint` and `espn_getendpoint_raw` functions can accept x-fantasy-filters. `espn_getendpoint` has an `x_fantasy_filter` argument that takes the JSON object created above, while `espn_getendpoint_raw` requires that the object is converted into an HTTP header first. 
+Both the `espn_getendpoint` and `espn_getendpoint_raw` functions can accept x-fantasy-filters. `espn_getendpoint` has an `x_fantasy_filter`argument that takes the JSON object created above, while `espn_getendpoint_raw` requires that the object is converted into an HTTP header first. 
 
 Examples here:
 
@@ -142,9 +137,10 @@ player_scores_2 <- espn_getendpoint_raw(
 
 ```
 
+
 ## Other ESPN API resources
 
-Kiernan Nichols' [fflr R package](https://github.com/kiernann/fflr) is an R package available on CRAN that is built specifically for ESPN API access. As of this writing (2021-03-03), it only supports public leagues, and has a few style differences as a lighter-weight & lower-dependency package.
+Kiernan Nichols's [fflr R package](https://github.com/kiernann/fflr) is an R package available on CRAN that is built specifically for ESPN API access. As of this writing (2021-03-03) it only supports public leagues, and has a few style differences as a light-weight/lower-dependency package.
 
 Many of the API endpoints are being researched in other languages and you might be able to draw inspiration on what's possible by checking them out:
 
@@ -157,5 +153,5 @@ Many of the API endpoints are being researched in other languages and you might 
 ```{r include = FALSE}
 httptest::stop_mocking()
 
-unlink(c("ffscrapr-tests-1.3.0","f.zip"), recursive = TRUE, force = TRUE)
+unlink(c("ffscrapr-tests-1.4.0","f.zip"), recursive = TRUE, force = TRUE)
 ```
