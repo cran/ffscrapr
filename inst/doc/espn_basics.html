@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6            1 &quot;The Early GGod&quot;                   39982 11452 14925 10705  2900</span></span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            3 &quot;PAKI STANS&quot;                       39137 12951 11897 12607  1682</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            9 &quot;RAFI CUNADO&quot;                      36116 10172 11676 13015  1253</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9           10 &quot;Austin \U0001f410Drew Lock\~      25240 10278   414 14444   104</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9           10 &quot;Austin &lt;U+0001F410&gt;Drew Loc~      25240 10278   414 14444   104</span></span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10            8 &quot;Big Coomers&quot;                      20671  7894  1336 11281   160</span></span></code></pre></div>
 <p>So with that, we’ve got a team summary of values! I like applying some context, so let’s turn these into percentages - this helps normalise it to your league environment.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>value_summary_pct <span class="ot">&lt;-</span> value_summary <span class="sc">%&gt;%</span> </span>
@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6            1 &quot;The Early GGod&quot;                   0.102 0.101 0.122 0.083 0.102</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            3 &quot;PAKI STANS&quot;                       0.1   0.114 0.097 0.098 0.059</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            9 &quot;RAFI CUNADO&quot;                      0.092 0.09  0.095 0.102 0.044</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9           10 &quot;Austin \U0001f410Drew Lock\~      0.064 0.091 0.003 0.113 0.004</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9           10 &quot;Austin &lt;U+0001F410&gt;Drew Loc~      0.064 0.091 0.003 0.113 0.004</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10            8 &quot;Big Coomers&quot;                      0.053 0.07  0.011 0.088 0.006</span></span></code></pre></div>
 <p>Armed with a value summary like this, we can see team strengths and weaknesses pretty quickly, and figure out who might be interested in your positional surpluses and who might have a surplus at a position you want to look at.</p>
 </div>
@@ -316,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7            7 &quot;Tony El Tigre&quot;      24.5   24.7   27.5   26.2        3        5</span></span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8            8 &quot;Big Coomers&quot;        23.8   27     28.7   27.2        3        7</span></span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9            9 &quot;RAFI CUNADO&quot;        34.6   25.5   26     24.1        3        5</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10           10 &quot;Austin \U0001f41~   31.4   27.8   31.8   24.9        3        5</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10           10 &quot;Austin &lt;U+0001F4~   31.4   27.8   31.8   24.9        3        5</span></span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 2 more variables: count_TE &lt;int&gt;, count_WR &lt;int&gt;</span></span></code></pre></div>
 </div>
 <div id="next-steps" class="section level2">
