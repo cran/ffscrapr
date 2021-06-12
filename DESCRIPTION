@@ -1,7 +1,7 @@
 Type: Package
 Package: ffscrapr
 Title: API Client for Fantasy Football League Platforms
-Version: 1.4.2
+Version: 1.4.3
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
@@ -26,7 +26,7 @@ URL: https://ffscrapr.dynastyprocess.com,
         https://docs.sleeper.app,
         https://www.fleaflicker.com/api-docs/index.html,
         https://www.espn.com/fantasy/,
-        https://www.nflfastr.com/reference/load_player_stats.html
+        https://nflfastr.com/reference/load_player_stats.html
 BugReports: https://github.com/dynastyprocess/ffscrapr/issues
 Depends: R (>= 3.0.0)
 Imports: cachem (>= 1.0.0), checkmate (>= 2.0.0), dplyr (>= 1.0.0),
@@ -43,10 +43,10 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-05-10 03:10:29 UTC; Tan
+Packaged: 2021-06-12 15:00:53 UTC; Tan
 Author: Tan Ho [aut, cre],
   Tony ElHabr [ctb],
   Joe Sydlowski [ctb]
 Maintainer: Tan Ho <tan@tanho.ca>
 Repository: CRAN
-Date/Publication: 2021-05-10 07:00:06 UTC
+Date/Publication: 2021-06-12 15:30:02 UTC

@@ -10,9 +10,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<meta name="author" content="Tan Ho" />
 
+<meta name="date" content="2021-06-12" />
 
-<title>ffscrapr: Player Scoring History</title>
+<title>ffscrapr: ff_scoringhistory Limitations</title>
 
 <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
@@ -42,15 +44,23 @@
 
 
 
-<h1 class="title toc-ignore">ffscrapr: Player Scoring History</h1>
+<h1 class="title toc-ignore">ffscrapr: ff_scoringhistory Limitations</h1>
+<h4 class="author">Tan Ho</h4>
+<h4 class="date">2021-06-12</h4>
 
 
 
 <div id="limitations-of-ff_scoringhistory" class="section level2">
 <h2>Limitations of ff_scoringhistory</h2>
-<p>For all sites: - Official NFL lateral scoring may be different than MFL scoring - Special team TDs are not broken down into punt returns, kick returns, and FG returns in nflfastR <code>load_player_stats</code> so the kick return scoring was applied to all special team TDs - No support for IDPs, team defenses, kickers, coaches, fumbles, return yards, offensive fumble recoveries - Support for eccentric rules (bonuses for long plays, conditional rules) will be added on a request basis</p>
-<p>For Fleaflicker: - Does Fleaflicker allow for ranged scoring rules like MFL?</p>
-<p>For Sleeper: - Does Sleeper allow for ranged scoring rules like MFL? - Does Sleeper allow for positional scoring rules?</p>
+<p>For all sites:</p>
+<ul>
+<li>Official NFL lateral scoring may be different than MFL scoring</li>
+<li>Special team TDs are not broken down into punt returns, kick returns, and FG returns in nflfastR <code>load_player_stats</code> so the kick return scoring was applied to all special team TDs</li>
+<li>No support for IDPs, team defenses, kickers, coaches, fumbles, return yards, offensive fumble recoveries</li>
+<li>Support for eccentric rules (bonuses for long plays, conditional rules) will be added on a request basis</li>
+</ul>
+<p>For Fleaflicker: - Does Fleaflicker allow for ranged scoring rules like MFL? (assume no)</p>
+<p>For Sleeper: - Does Sleeper allow for ranged scoring rules like MFL? (assume no) - Does Sleeper allow for positional scoring rules? (assume no)</p>
 </div>
 
 

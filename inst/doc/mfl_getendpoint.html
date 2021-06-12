@@ -10,7 +10,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<meta name="author" content="Tan Ho" />
 
+<meta name="date" content="2021-06-12" />
 
 <title>MFL: Get Endpoint</title>
 
@@ -38,6 +40,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -137,6 +140,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <h1 class="title toc-ignore">MFL: Get Endpoint</h1>
+<h4 class="author">Tan Ho</h4>
+<h4 class="date">2021-06-12</h4>
 
 
 
@@ -207,20 +212,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mfl_players</span>(fog) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">&quot;player_id&quot;</span>,<span class="st">&quot;player_name&quot;</span>,<span class="st">&quot;pos&quot;</span>,<span class="st">&quot;age&quot;</span>,<span class="st">&quot;team&quot;</span>),</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;willGiveUp&quot;</span> <span class="ot">=</span> <span class="st">&quot;player_id&quot;</span>)</span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fog_tradebait)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 9</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   timestamp           franchise_id willGiveUp inExchangeFor       franchise_name</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dttm&gt;              &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;         </span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2019-11-23 14:49:15 0001         7394       &quot;anyone need a QB?&quot; @JohnBoschFF  </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2019-11-23 14:49:15 0001         13128      &quot;anyone need a QB?&quot; @JohnBoschFF  </span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2020-02-01 05:43:29 0003         13319      &quot;&quot;                  The Accountant</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2020-02-01 05:43:29 0003         13139      &quot;&quot;                  The Accountant</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2020-02-01 05:43:29 0003         11675      &quot;&quot;                  The Accountant</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2020-02-01 15:49:25 0004         12171      &quot;&quot;                  Kevin Cutillo </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: player_name &lt;chr&gt;, pos &lt;chr&gt;, age &lt;dbl&gt;,</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   team &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fog_tradebait)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 9</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   timestamp           franchise_id willGiveUp inExchangeFor       franchise_name</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dttm&gt;              &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;         </span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2019-11-23 14:49:15 0001         7394       &quot;anyone need a QB?&quot; @JohnBoschFF  </span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2019-11-23 14:49:15 0001         13128      &quot;anyone need a QB?&quot; @JohnBoschFF  </span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2020-02-01 05:43:29 0003         13319      &quot;&quot;                  The Accountant</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2020-02-01 05:43:29 0003         13139      &quot;&quot;                  The Accountant</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2020-02-01 05:43:29 0003         11675      &quot;&quot;                  The Accountant</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 2020-02-01 15:49:25 0004         12171      &quot;&quot;                  Kevin Cutillo </span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: player_name &lt;chr&gt;, pos &lt;chr&gt;, age &lt;dbl&gt;,</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   team &lt;chr&gt;</span></span></code></pre></div>
 </div>
 
 
