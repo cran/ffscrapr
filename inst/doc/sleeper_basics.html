@@ -12,7 +12,7 @@
 
 <meta name="author" content="Tan Ho" />
 
-<meta name="date" content="2021-07-20" />
+<meta name="date" content="2021-07-24" />
 
 <title>Sleeper: Basics</title>
 
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">Sleeper: Basics</h1>
 <h4 class="author">Tan Ho</h4>
-<h4 class="date">2021-07-20</h4>
+<h4 class="date">2021-07-24</h4>
 
 
 
@@ -224,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1            Fake News      1110      T.Y. Hilton     WR    IND    31.7</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1            Fake News      1339      Zach Ertz       TE    PHI    30.7</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1            Fake News      1426      DeAndre Hopkins WR    ARI    29.1</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 1            Fake News      1825      Jarvis Landry   WR    CLE    28.6</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 1            Fake News      1825      Jarvis Landry   WR    CLE    28.7</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1            Fake News      2025      Albert Wilson   WR    MIA    29  </span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1            Fake News      2197      Brandin Cooks   WR    HOU    27.8</span></span></code></pre></div>
 <div id="values" class="section level2">
@@ -252,12 +252,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 10</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name    pos   team    age ecr_1qb</span></span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1            Fake News      4866      Saquon Barkley RB    NYG    24.4     3.4</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1            Fake News      4866      Saquon Barkley RB    NYG    24.5     3.4</span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1            Fake News      4199      Aaron Jones    RB    GB     26.6    21  </span></span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1            Fake News      1426      DeAndre Hopki~ WR    ARI    29.1    21.1</span></span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 1            Fake News      4037      Chris Godwin   WR    TB     25.4    33.7</span></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1            Fake News      4098      Kareem Hunt    RB    CLE    26      63.7</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1            Fake News      5022      Dallas Goedert TE    PHI    26      83.2</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1            Fake News      5022      Dallas Goedert TE    PHI    26.1    83.2</span></span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 2 more variables: ecr_pos &lt;dbl&gt;, value_1qb &lt;int&gt;</span></span></code></pre></div>
 <p>Let’s do some team summaries now!</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>value_summary <span class="ot">&lt;-</span> jml_values <span class="sc">%&gt;%</span> </span>
@@ -330,17 +330,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   franchise_id, franchise_name [12]</span></span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name    age_QB age_RB age_TE age_WR age_FB count_QB</span></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 1            Fake News           28.8   25.4   25.6   27.6   NA          3</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 10           JMLarkin            28.6   27.3   26     25.2   30.2        3</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 1            Fake News           28.9   25.5   25.6   27.7   NA          3</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 10           JMLarkin            28.6   27.3   26     25.2   30.3        3</span></span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 11           Permian Panthers    24.2   23.1   31.7   25.7   NA          4</span></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 12           jaydk               32.2   25.7   26.2   27.9   NA          4</span></span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2            KingGabe            29.1   22.6   27.3   22.4   NA          5</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 3            solarpool           25.5   25.6   26.7   27.6   NA          5</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 3            solarpool           25.6   25.6   26.7   27.6   NA          5</span></span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 4            The FANTom Menace   28.9   23.5   23.9   27.1   NA          5</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 5            Barbarians          25.2   24.6   28.8   26.3   NA          3</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 5            Barbarians          25.2   24.6   28.9   26.3   NA          3</span></span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 6            sox05syd            24     24.1   27.4   25.3   NA          3</span></span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 7            Flipadelphia05      33.1   25.7   27.5   26.7   NA          2</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 8            Hocka Flocka        31.5   24.2   23.9   23.5   NA          3</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 8            Hocka Flocka        31.5   24.2   24     23.5   NA          3</span></span>
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 9            ZPMiller97          24.5   24.1   26.8   25.2   NA          3</span></span>
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: count_RB &lt;int&gt;, count_TE &lt;int&gt;, count_WR &lt;int&gt;,</span></span>
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   count_FB &lt;int&gt;</span></span></code></pre></div>
