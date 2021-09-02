@@ -11,10 +11,10 @@ eval <- TRUE
 
 tryCatch(expr = {
   
-  download.file("https://github.com/ffverse/ffscrapr-tests/archive/1.4.5.zip","f.zip")
+  download.file("https://github.com/ffverse/ffscrapr-tests/archive/main.zip","f.zip")
   unzip('f.zip', exdir = ".")
   
-  httptest::.mockPaths(new = "ffscrapr-tests-1.4.5")},
+  httptest::.mockPaths(new = "ffscrapr-tests-main")},
   warning = function(e) eval <<- FALSE,
   error = function(e) eval <<- FALSE)
 
@@ -100,5 +100,5 @@ age_summary
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
 
-unlink(c("ffscrapr-tests-1.4.5","f.zip"), recursive = TRUE, force = TRUE)
+unlink(c("ffscrapr-tests-main","f.zip"), recursive = TRUE, force = TRUE)
 

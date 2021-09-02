@@ -12,7 +12,7 @@
 
 <meta name="author" content="Tan Ho" />
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-09-02" />
 
 <title>MFL: Basics</title>
 
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">MFL: Basics</h1>
 <h4 class="author">Tan Ho</h4>
-<h4 class="date">2021-07-24</h4>
+<h4 class="date">2021-09-02</h4>
 
 
 
@@ -169,21 +169,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ssb_summary <span class="ot">&lt;-</span> <span class="fu">ff_league</span>(ssb)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ssb_summary)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [1 x 14] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_id      : chr &quot;54040&quot;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_name    : chr &quot;The Super Smash Bros Dynasty League&quot;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ season         : int 2020</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ franchise_count: num 14</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_type        : chr &quot;1QB&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ idp            : logi FALSE</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ scoring_flags  : chr &quot;0.5_ppr, TEPrem, PP1D&quot;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ best_ball      : logi FALSE</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ salary_cap     : logi FALSE</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ player_copies  : num 1</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ years_active   : chr &quot;2018-2021&quot;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_count       : chr &quot;1&quot;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ roster_size    : num 33</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_depth   : num 462</span></span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [1 x 17] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_id        : chr &quot;54040&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_name      : chr &quot;The Super Smash Bros Dynasty League&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ season           : int 2020</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_type      : chr NA</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ franchise_count  : num 14</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_type          : chr &quot;1QB&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ idp              : logi FALSE</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ scoring_flags    : chr &quot;0.5_ppr, TEPrem, PP1D&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ best_ball        : logi FALSE</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ salary_cap       : logi FALSE</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ player_copies    : num 1</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ years_active     : chr &quot;2018-2021&quot;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ qb_count         : chr &quot;1&quot;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ roster_size      : num 33</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ league_depth     : num 462</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ draft_type       : chr &quot;email draft&quot;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ draft_player_pool: chr &quot;Both&quot;</span></span></code></pre></div>
 <p>Okay, so it’s the Smash Bros Dynasty League, it’s a 1QB league with 14 teams, best ball scoring, half ppr and point-per-first-down settings.</p>
 <p>Let’s grab the rosters now.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ssb_rosters <span class="ot">&lt;-</span> <span class="fu">ff_rosters</span>(ssb)</span>
@@ -192,12 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 11</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name            pos   team    age</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0001         Team Pikachu   13189     Engram, Evan           TE    NYG    26.9</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0001         Team Pikachu   11680     Landry, Jarvis         WR    CLE    28.7</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0001         Team Pikachu   13645     Smith, Tre&#39;Quan        WR    NOS    25.5</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0001         Team Pikachu   12110     Brate, Cameron         TE    TBB    30.1</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0001         Team Pikachu   13168     Reynolds, Josh         WR    LAR    26.4</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0001         Team Pikachu   13793     Valdes-Scantling, Mar~ WR    GBP    26.8</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0001         Team Pikachu   13189     Engram, Evan           TE    NYG    27  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0001         Team Pikachu   11680     Landry, Jarvis         WR    CLE    28.8</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0001         Team Pikachu   13645     Smith, Tre&#39;Quan        WR    NOS    25.7</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0001         Team Pikachu   12110     Brate, Cameron         TE    TBB    30.2</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0001         Team Pikachu   13168     Reynolds, Josh         WR    LAR    26.5</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0001         Team Pikachu   13793     Valdes-Scantling, Mar~ WR    GBP    26.9</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 4 more variables: roster_status &lt;chr&gt;, drafted &lt;chr&gt;,</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   draft_year &lt;chr&gt;, draft_round &lt;chr&gt;</span></span></code></pre></div>
 <div id="values" class="section level2">
@@ -225,12 +228,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 14</span></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   franchise_id franchise_name player_id player_name            pos   team    age</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0001         Team Pikachu   14803     Edwards-Helaire, Clyde RB    KCC    22.3</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0001         Team Pikachu   14835     Higgins, Tee           WR    CIN    22.5</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0001         Team Pikachu   14779     Herbert, Justin        QB    LAC    23.4</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0001         Team Pikachu   14777     Burrow, Joe            QB    CIN    24.6</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0001         Team Pikachu   14838     Shenault, Laviska      WR    JAC    22.8</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0001         Team Pikachu   11680     Landry, Jarvis         WR    CLE    28.7</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0001         Team Pikachu   14803     Edwards-Helaire, Clyde RB    KCC    22.4</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0001         Team Pikachu   14835     Higgins, Tee           WR    CIN    22.6</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0001         Team Pikachu   14779     Herbert, Justin        QB    LAC    23.5</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0001         Team Pikachu   14777     Burrow, Joe            QB    CIN    24.7</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0001         Team Pikachu   14838     Shenault, Laviska      WR    JAC    22.9</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0001         Team Pikachu   11680     Landry, Jarvis         WR    CLE    28.8</span></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 7 more variables: roster_status &lt;chr&gt;, drafted &lt;chr&gt;,</span></span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   draft_year &lt;chr&gt;, draft_round &lt;chr&gt;, ecr_1qb &lt;dbl&gt;, ecr_pos &lt;dbl&gt;,</span></span>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   value_1qb &lt;int&gt;</span></span></code></pre></div>
@@ -308,20 +311,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   franchise_id, franchise_name [14]</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    franchise_id franchise_name     age_QB age_RB age_TE age_WR count_QB count_RB</span></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0001         Team Pikachu         23.9   22.8   26.2   23.3        4        8</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0002         Team Simon Belmont   24.9   25.5   24.7   24.5        8       11</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0003         Team Donkey Kong     25.0   23.7   31.7   27.2        5        8</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0004         Team Ice Climbers    28.7   25.5   26.7   27.1        5        9</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0005         Team Dr. Mario       35.9   23.3   25.0   24.8        2        7</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0006         Team King Dedede     25.9   25.9   26.6   25.2        3       10</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 0007         Team Kirby           24.6   25.3   28.9   28.8        4        9</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 0008         Team Bowser          26.2   26.9   33.2   28.4        4       11</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 0009         Team Link            27.4   26.3   28.6   28.4        3       11</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 0010         Team Yoshi           27.9   22.4   27.9   26.1        2        6</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 0011         Team Diddy Kong      31.6   27.0   24.2   23.5        4       12</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 0012         Team Mewtwo          33.2   24.1   24.6   24.0        5        7</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 0013         Team Ness            32.9   23.8   23.7   25.4        5        9</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 0014         Team Luigi           32.6   25.4   23.8   27.2        3       10</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0001         Team Pikachu         24.0   22.9   26.3   23.5        4        8</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0002         Team Simon Belmont   25     25.6   24.9   24.6        8       11</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0003         Team Donkey Kong     25.1   23.9   31.8   27.3        5        8</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0004         Team Ice Climbers    28.8   25.6   26.8   27.2        5        9</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0005         Team Dr. Mario       36.0   23.4   25.1   24.9        2        7</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0006         Team King Dedede     26.0   26.0   26.7   25.3        3       10</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 0007         Team Kirby           24.7   25.4   29.0   28.9        4        9</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 0008         Team Bowser          26.4   27.0   33.3   28.5        4       11</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 0009         Team Link            27.5   26.4   28.7   28.5        3       11</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 0010         Team Yoshi           28.0   22.5   28.0   26.2        2        6</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 0011         Team Diddy Kong      31.7   27.1   24.3   23.7        4       12</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 0012         Team Mewtwo          33.3   24.2   24.7   24.1        5        7</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 0013         Team Ness            33.0   23.9   23.8   25.5        5        9</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 0014         Team Luigi           32.8   25.5   23.9   27.3        3       10</span></span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 2 more variables: count_TE &lt;int&gt;, count_WR &lt;int&gt;</span></span></code></pre></div>
 </div>
 <div id="next-steps" class="section level2">
