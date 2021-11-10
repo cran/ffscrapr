@@ -1,7 +1,7 @@
 Type: Package
 Package: ffscrapr
 Title: API Client for Fantasy Football League Platforms
-Version: 1.4.6
+Version: 1.4.7
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
@@ -30,22 +30,22 @@ BugReports: https://github.com/ffverse/ffscrapr/issues
 Depends: R (>= 3.6.0)
 Imports: cachem (>= 1.0.0), checkmate (>= 2.0.0), dplyr (>= 1.0.0),
         glue (>= 1.3.0), httr (>= 1.4.0), jsonlite (>= 1.6.0),
-        lifecycle, lubridate (>= 1.5.0), magrittr (>= 1.5.0), nflreadr
-        (>= 1.1.0), memoise (>= 2.0.0), purrr (>= 0.3.0), rappdirs (>=
-        0.3.0), ratelimitr (>= 0.4.0), rlang (>= 0.4.0), stringr (>=
-        1.4.0), tibble (>= 3.0.0), tidyr (>= 1.0.0)
+        lifecycle, magrittr (>= 1.5.0), nflreadr (>= 1.1.0), memoise
+        (>= 2.0.0), purrr (>= 0.3.0), rappdirs (>= 0.3.0), ratelimitr
+        (>= 0.4.0), rlang (>= 0.4.0), stringr (>= 1.4.0), tibble (>=
+        3.0.0), tidyr (>= 1.0.0)
 Suggests: covr (>= 3.0.0), curl (>= 4.0.0), httptest (>= 3.0.0), knitr
         (>= 1.0), rmarkdown (>= 2.6), testthat (>= 2.1.0), withr (>=
         2.4.0)
 LazyData: true
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-09-02 12:15:49 UTC; Tan
+Packaged: 2021-11-09 21:55:03 UTC; tan
 Author: Tan Ho [aut, cre],
   Tony ElHabr [ctb],
   Joe Sydlowski [ctb]
 Maintainer: Tan Ho <tan@tanho.ca>
 Repository: CRAN
-Date/Publication: 2021-09-03 00:10:23 UTC
+Date/Publication: 2021-11-10 06:00:07 UTC

@@ -11,10 +11,10 @@ eval <- TRUE
 
 tryCatch(expr = {
   
-  download.file("https://github.com/ffverse/ffscrapr-tests/archive/main.zip","f.zip")
+  download.file("https://github.com/ffverse/ffscrapr-tests/archive/1.4.7.zip","f.zip")
   unzip('f.zip', exdir = ".")
   
-  httptest::.mockPaths(new = "ffscrapr-tests-main")},
+  httptest::.mockPaths(new = "ffscrapr-tests-1.4.7")},
   warning = function(e) eval <<- FALSE,
   error = function(e) eval <<- FALSE)
 
@@ -67,5 +67,5 @@ player_scores_2 <- espn_getendpoint_raw(
 ## ----include = FALSE----------------------------------------------------------
 httptest::stop_mocking()
 
-unlink(c("ffscrapr-tests-main","f.zip"), recursive = TRUE, force = TRUE)
+unlink(c("ffscrapr-tests-1.4.7","f.zip"), recursive = TRUE, force = TRUE)
 

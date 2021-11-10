@@ -12,7 +12,7 @@
 
 <meta name="author" content="Tan Ho" />
 
-<meta name="date" content="2021-09-02" />
+<meta name="date" content="2021-11-09" />
 
 <title>Fleaflicker: Get Endpoint</title>
 
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">Fleaflicker: Get Endpoint</h1>
 <h4 class="author">Tan Ho</h4>
-<h4 class="date">2021-09-02</h4>
+<h4 class="date">2021-11-09</h4>
 
 
 
@@ -199,15 +199,15 @@ Parameters:
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&quot;homeScore&quot;</span>,<span class="st">&quot;awayScore&quot;</span>),purrr<span class="sc">::</span>map_dbl,purrr<span class="sc">::</span>pluck,<span class="st">&quot;score&quot;</span>,<span class="st">&quot;value&quot;</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_scoreboard)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 x 8</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id     away     home    awayScore homeScore homeResult awayResult isFinalScore</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;lgl&gt;       </span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 46301~ Winterf~ Top Ci~      207.      162. LOSE       WIN        TRUE        </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 46301~ Goldenr~ Winter~      145.      157. WIN        LOSE       TRUE        </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 46301~ Wintert~ Clutch~      153.      192. WIN        LOSE       TRUE        </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 46301~ Manitob~ Bamend~      182.      183. WIN        LOSE       TRUE        </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 46301~ Springf~ Shangh~      176.      129. LOSE       WIN        TRUE        </span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 46301~ Boomtow~ Philad~      199.      200. WIN        LOSE       TRUE</span></span></code></pre></div>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 8</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       away    home   awayScore homeScore homeResult awayResult isFinalScore</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;lgl&gt;       </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 46301923 Winter… Top C…      207.      162. LOSE       WIN        TRUE        </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 46301919 Golden… Winte…      145.      157. WIN        LOSE       TRUE        </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 46301921 Winter… Clutc…      153.      192. WIN        LOSE       TRUE        </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 46301922 Manito… Bamen…      182.      183. WIN        LOSE       TRUE        </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 46301920 Spring… Shang…      176.      129. LOSE       WIN        TRUE        </span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 46301926 Boomto… Phila…      199.      200. WIN        LOSE       TRUE</span></span></code></pre></div>
 <p>From here, we’ll be able to feed these IDs into the FetchLeagueBoxscore endpoint <a href="https://www.fleaflicker.com/api-docs/index.html#operation--FetchLeagueScoreboard-get" class="uri">https://www.fleaflicker.com/api-docs/index.html#operation--FetchLeagueScoreboard-get</a> as the fantasy_game_id - and from here you’ll be able to get to player-level points and actual stat data for each fantasy game!</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same variables as previous endpoint call!</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>onegame_lineups <span class="ot">&lt;-</span> <span class="fu">fleaflicker_getendpoint</span>(</span>
@@ -226,7 +226,7 @@ Parameters:
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest_wider</span>(<span class="st">&#39;player&#39;</span>)</span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(onegame_lineups,<span class="at">max.level =</span> <span class="dv">2</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [98 x 16] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [98 × 16] (S3: tbl_df/tbl/data.frame)</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ group               : chr [1:98] &quot;START&quot; &quot;START&quot; &quot;START&quot; &quot;START&quot; ...</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ position            :List of 98</span></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ positionColor       :List of 98</span></span>
