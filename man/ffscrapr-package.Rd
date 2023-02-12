@@ -6,10 +6,7 @@
 \alias{ffscrapr-package}
 \title{ffscrapr: API Client for Fantasy Football League Platforms}
 \description{
-Helps access various Fantasy Football APIs by handling
-    authentication and rate-limiting, forming appropriate calls, and
-    returning tidy dataframes which can be easily connected to other data
-    sources.
+Helps access various Fantasy Football APIs by handling authentication and rate-limiting, forming appropriate calls, and returning tidy dataframes which can be easily connected to other data sources.
 }
 \seealso{
 Useful links:
@@ -17,7 +14,7 @@ Useful links:
   \item \url{https://ffscrapr.ffverse.com}
   \item \url{https://github.com/ffverse/ffscrapr}
   \item \url{https://api.myfantasyleague.com/2020/api_info}
-  \item \url{https://docs.sleeper.app}
+  \item \url{https://docs.sleeper.com}
   \item \url{https://www.fleaflicker.com/api-docs/index.html}
   \item \url{https://www.espn.com/fantasy/}
   \item \url{https://www.nflfastr.com/reference/load_player_stats.html}

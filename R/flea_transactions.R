@@ -174,7 +174,7 @@ ff_transactions.flea_conn <- function(conn, franchise_id = NULL, ...) {
       "pos" = "position",
       "team" = "proTeamAbbreviation"
     ) %>%
-    dplyr::select(-.data$player, -.data$franchise)
+    dplyr::select(-"player", -"franchise")
 
   if ("waiverResolutionTeams" %in% names(claims)) {
     claims <- claims %>%
@@ -228,7 +228,7 @@ ff_transactions.flea_conn <- function(conn, franchise_id = NULL, ...) {
       sport = "NFL",
       filter = "TRADES_COMPLETED",
       league_id = conn$league_id,
-      result_offset = 80
+      result_offset = result_offset
     ) %>%
       purrr::pluck("content")
 

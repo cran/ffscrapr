@@ -26,6 +26,17 @@ sleeper_connect <- function(season = NULL,
 
   # nocov start
 
+  if(!is.character(league_id) && interactive()){
+    cli::cli_inform(
+      message = c(
+        "!" = "Warning: Sleeper IDs that are not passed in as character strings sometimes get misinterpreted by R.",
+        "i"="If you get unexpected results, try converting the league ID to character before passing it to {.fn sleeper_connect}"
+      ),
+      .frequency = "regularly",
+      .frequency_id = "sleeper_connect_noncharacter"
+    )
+  }
+
   ## USER AGENT ##
   # Self-identifying is mostly about being polite.
 
@@ -90,7 +101,7 @@ print.sleeper_conn <- function(x, ...) {
 # DO NOT EXPORT
 #' Get Sleeper User ID
 #'
-#' Docs: https://docs.sleeper.app
+#' Docs: https://docs.sleeper.com
 #'
 #' @param user_name Sleeper username
 #'

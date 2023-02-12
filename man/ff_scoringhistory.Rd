@@ -13,15 +13,15 @@
 \usage{
 ff_scoringhistory(conn, season, ...)
 
-\method{ff_scoringhistory}{espn_conn}(conn, season = 1999:2020, ...)
+\method{ff_scoringhistory}{espn_conn}(conn, season = 1999:nflreadr::most_recent_season(), ...)
 
-\method{ff_scoringhistory}{flea_conn}(conn, season = 1999:2020, ...)
+\method{ff_scoringhistory}{flea_conn}(conn, season = 1999:nflreadr::most_recent_season(), ...)
 
-\method{ff_scoringhistory}{mfl_conn}(conn, season = 1999:2020, ...)
+\method{ff_scoringhistory}{mfl_conn}(conn, season = 1999:nflreadr::most_recent_season(), ...)
 
-\method{ff_scoringhistory}{sleeper_conn}(conn, season = 1999:2020, ...)
+\method{ff_scoringhistory}{sleeper_conn}(conn, season = 1999:nflreadr::most_recent_season(), ...)
 
-\method{ff_scoringhistory}{template_conn}(conn, season = 1999:2020, ...)
+\method{ff_scoringhistory}{template_conn}(conn, season = 1999:nflreadr::most_recent_season(), ...)
 }
 \arguments{
 \item{conn}{a conn object created by \code{ff_connect()}}
@@ -39,17 +39,17 @@ Not all of the scoring rules from your league may have nflfastr equivalents, but
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{espn_conn}: ESPN: returns scoring history in a flat table, one row per player per week.
+\item \code{ff_scoringhistory(espn_conn)}: ESPN: returns scoring history in a flat table, one row per player per week.
 
-\item \code{flea_conn}: Fleaflicker: returns scoring history in a flat table, one row per player per week.
+\item \code{ff_scoringhistory(flea_conn)}: Fleaflicker: returns scoring history in a flat table, one row per player per week.
 
-\item \code{mfl_conn}: MFL: returns scoring history in a flat table, one row per player per week.
+\item \code{ff_scoringhistory(mfl_conn)}: MFL: returns scoring history in a flat table, one row per player per week.
 
-\item \code{sleeper_conn}: Sleeper: returns scoring history in a flat table, one row per player per week.
+\item \code{ff_scoringhistory(sleeper_conn)}: Sleeper: returns scoring history in a flat table, one row per player per week.
 
-\item \code{template_conn}: template: returns scoring history in a flat table, one row per player per week.
+\item \code{ff_scoringhistory(template_conn)}: template: returns scoring history in a flat table, one row per player per week.
+
 }}
-
 \examples{
 \donttest{
 try({ # try only shown here because sometimes CRAN checks are weird

@@ -14,14 +14,26 @@
 #'   ff_draftpicks(jml_conn)
 #' }) # end try
 #' }
-#'
 #' @export
+
 ff_draftpicks.sleeper_conn <- function(conn, ...) {
-  current_picks <- .sleeper_currentpicks(conn)
 
-  future_picks <- .sleeper_futurepicks(conn)
+  current_drafts <- glue::glue("league/{conn$league_id}/drafts") %>%
+    sleeper_getendpoint() %>%
+    purrr::pluck("content") %>%
+    purrr::map(`[`, c("draft_id", "season", "status", "draft_order")) %>%
+    tibble::tibble() %>%
+    tidyr::unnest_wider(1) %>%
+    dplyr::filter(.data$status != "complete")
 
-  picks <- dplyr::bind_rows(current_picks, future_picks) %>%
+  include_current <- nrow(current_drafts) > 0
+
+  # check on current drafts.
+  # if there are incomplete drafts, add current season to future pick seasons
+
+  future_picks <- .sleeper_futurepicks(conn, include_current = include_current)
+
+  picks <- dplyr::bind_rows(current_drafts, future_picks) %>%
     dplyr::left_join(
       ff_franchises(conn) %>% dplyr::select("franchise_id", "franchise_name"),
       by = "franchise_id"
@@ -41,7 +53,7 @@ ff_draftpicks.sleeper_conn <- function(conn, ...) {
     purrr::map_dfr(`[`, c("draft_id", "season", "status")) %>%
     dplyr::filter(.data$status != "complete") %>%
     dplyr::mutate(picks = purrr::map(.data$draft_id, .sleeper_currentdraft)) %>%
-    tidyr::unnest(.data$picks) %>%
+    tidyr::unnest("picks") %>%
     dplyr::select(dplyr::any_of(c(
       "season", "round", "pick", "franchise_id"
     )))
@@ -68,7 +80,7 @@ ff_draftpicks.sleeper_conn <- function(conn, ...) {
   return(picks)
 }
 
-.sleeper_futurepicks <- function(conn) {
+.sleeper_futurepicks <- function(conn, include_current = FALSE) {
   league_settings <- glue::glue("league/{conn$league_id}") %>%
     sleeper_getendpoint() %>%
     purrr::pluck("content")

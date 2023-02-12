@@ -17,7 +17,7 @@
 #' @describeIn ff_scoringhistory MFL: returns scoring history in a flat table, one row per player per week.
 #'
 #' @export
-ff_scoringhistory.mfl_conn <- function(conn, season = 1999:2020, ...) {
+ff_scoringhistory.mfl_conn <- function(conn, season = 1999:nflreadr::most_recent_season(), ...) {
   checkmate::assert_numeric(season, lower = 1999, upper = as.integer(format(Sys.Date(), "%Y")))
 
   # Pull in scoring rules for that league
@@ -65,8 +65,8 @@ ff_scoringhistory.mfl_conn <- function(conn, season = 1999:2020, ...) {
     tidyr::pivot_wider(
       id_cols = c("season", "week", "gsis_id", "sportradar_id",
                   "mfl_id", "player_name", "pos", "team", "points"),
-      names_from = .data$metric,
-      values_from = .data$value,
+      names_from = "metric",
+      values_from = "value",
       values_fill = 0,
       values_fn = max
     )
